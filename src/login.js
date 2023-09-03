@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -7,8 +8,8 @@ function Login() {
   const [passwordError, setPasswordError] = useState('');
 
   const validateEmail = (email) => {
-    // Very basic email validation 
-    if (!email || !email.includes('@')|| !email.includes('.')) {
+    // Very basic email validation
+    if (!email || !email.includes('@') || !email.includes('.')) {
       setEmailError('Please enter a valid email address.');
     } else {
       setEmailError('');
@@ -47,7 +48,6 @@ function Login() {
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            onBlur={() => validateEmail(email)}
           />
           {emailError && <div className="error">{emailError}</div>}
         </div>
@@ -58,13 +58,14 @@ function Login() {
             placeholder="Enter your password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            onBlur={() => validatePassword(password)}
           />
           {passwordError && <div className="error">{passwordError}</div>}
         </div>
         <button type="submit">Login</button>
+        <p className="register link">
+          Don't have an account? <a href="/register">Register</a>
+        </p>
       </form>
-
     </div>
   );
 }
