@@ -1,18 +1,14 @@
 import React from 'react';
 import './App.css';
-import Header from './header';
-import './header.css';
-import Login from './login';
-import './login.css';
-import Register from './register';
-import './register.css';
-import MainPage from './mainpage';
-import './mainpage.css';
+import MainPage from './mainpage'; 
+import Login from './login'; // Will need to route between pages
+import Register from './register'; // Will need to route between pages
+
 
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <Register />
     </div>
 
   );
