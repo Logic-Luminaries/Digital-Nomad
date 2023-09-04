@@ -1,9 +1,18 @@
+import React, { useState } from 'react';
 
-document.addEventListener("DOMContentLoaded", function () {
-    const filterButton = document.getElementById('filterButton');
 
-    filterButton.addEventListener('click', () => {
+function Filter() {
+
+ 
+  const handleLogin = (e) => {
+    e.preventDefault();
+  return (
+    <div className="filter-container">
+        <button type="submit">Filter</button>
         
-        alert();
-    });
-});
+
+    </div>
+  );
+}
+}
+export default Filter;

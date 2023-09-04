@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import Login from './login';
-import './login.css';
+import Filter from './filter';
+import './filter.css';
 
 
 function App() {
   return (
       <div className="App">
-      <Login />
+      <Filter />
       </div>
   );
 }
