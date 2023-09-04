@@ -1,0 +1,103 @@
+/*  If you want the header section to take up the whole top space, uncomment below */
+/* body{ 
+   margin: 0;
+   padding:0;
+} */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    /* background-color: #a7d5e2; */
+    background-color: #e2f8fa;
+    color: white;
+    border-radius: 10px;
+    margin: 0; /* Remove margin */
+  }
+  
+  
+  .header__left {
+    flex: 1;
+  }
+  
+  .header__logo {
+    height: 50px;
+    width: 50px; /* Customize the logo size */
+    border-radius: 50px;
+  }
+  
+  
+  .header__middle {
+    flex: 2;
+    text-align: center;
+  }
+  
+  .header__bookButton {
+    background-color: #6bc6d4;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .header__bookButton:hover {
+    background-color: #f9f9f9; /* Change the color on hover */
+    color:#6bc6d4;/* Text color change when hover */
+    box-shadow: 0 0 8px rgba(1, 65, 86, 0.595); /* Add a shadow on hover */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.5s; /* Adjust the box-shadow duration for a smoother shadow appearenc */
+  }
+  
+  .header__right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    position: relative; /* Add position relative to create a stacking context */
+}
+
+.header__profileButton {
+    width: 40px; /* Customize the profile button size */
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #baf6ff; /* Change the border color to red */
+}
+
+.header__profileButton:hover {
+    color:#6bc6d4;/* Text color change when hover */
+    box-shadow: 0 0 10px rgba(1, 65, 86, 0.595); /* Add a shadow on hover */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.5s; /* Adjust the box-shadow duration for a smoother shadow appearence */
+}
+
+/* ... Your existing styles ... */
+
+  
+  .header__popup {
+    position: absolute;
+    top: calc(100% + 10px); /* Position below the profile button with a little spacing */
+    right: 0;
+    background-color:  #b8e6f3;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: none; /* Initially hide the popup */
+  }
+  
+  .header__right .header__popup {
+    display: block; /* Show the popup when the .header__right is hovered */
+  }
+  
+  .header__popup button {
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .header__popup button:hover {
+    background-color: #f0f0f0;
+  }
