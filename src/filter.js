@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 
 
-function Filter() {
-
+function Login() {
  
+
   const handleLogin = (e) => {
     e.preventDefault();
-  return (
-    <div className="filter-container">
-        <button type="submit">Filter</button>
-        
+      console.log('Filter clicked');
+    }
+    return (
+      <div className="Filter-container">
+          <button type="submit">Filter</button>
+         
+      </div>
+    );
+  };
 
-    </div>
-  );
-}
-}
-export default Filter;
+ 
+
+export default Login;
