@@ -1,16 +1,16 @@
 import React from 'react';
 import './App.css';
-import Filter from './filter';
-import './filter.css';
-import Map from './map';
-import './map.css';
+import MainPage from './mainpage'; 
+import Login from './login'; // Will need to route between pages
+import Register from './register'; // Will need to route between pages
 
 
 function App() {
   return (
-      <div className="App">
-      <Filter />
-      </div>
+    <div className="App">
+      <Register />
+    </div>
+
   );
 }
 
