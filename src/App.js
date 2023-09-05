@@ -4,6 +4,7 @@ import './App.css';
 import Register from './register'; // Will need to switch between pages
 import Login from './login'; // Will need to switch between pages
 import MainPage from './mainpage'; // Will need to switch between pages
+import Map from './map';
 
 
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<MainPage />} />
+        <Route path='/map' element={<Map />} />
       </Routes>
     </Router>
   );

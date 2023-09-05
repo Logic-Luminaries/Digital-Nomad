@@ -1,27 +1,30 @@
-import React, { useState } from 'react';
-import './header2.css'; // You can create a CSS file for styling
-
+import React, { useState } from "react";
+import { Link } from 'react-router-dom';
+import "./header2.css"; // You can create a CSS file for styling
 function Header2() {
-  
   const handleFilter = () => {
     // Implement your login logic here
-    alert('Filter button clicked!'); // You can replace this with your actual login code
+    alert("Filter button clicked!"); // You can replace this with your actual login code
   };
 
   const handleMap = () => {
     // Implement your sign-up logic here
-    alert('Map button clicked!'); // You can replace this with your actual sign-up code
+    alert("Map button clicked!"); // You can replace this with your actual sign-up code
   };
-
- 
 
   return (
     <div className="Header2">
       <div className="filter">
-        <button onClick= {handleFilter}className="filter__Button">Filter</button>
+        <button onClick={handleFilter} className="filter__Button">
+          Filter
+        </button>
       </div>
       <div className="map">
-        <button onClick = {handleMap} className="map__Button">Map</button>
+        <Link to="/map">
+          <button onClick={handleMap} className="map__Button">
+            Map
+          </button>
+        </Link>
       </div>
     </div>
   );
