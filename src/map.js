@@ -25,7 +25,17 @@ function CreateMarker(positions, map) {
       position: item.position,
       title: item.title,
     });
+    bindInfoWindow(marker, map);
     marker.setMap(map);
+  });
+}
+
+function bindInfoWindow(marker, map) {
+  var infowindow = new window.google.maps.InfoWindow({
+    content: "test",
+  });
+  window.google.maps.event.addListener(marker, "click", function () {
+    infowindow.open(map, marker);
   });
 }
 
@@ -45,6 +55,8 @@ function MyComponent() {
     map.fitBounds(bounds);
 
     setMap(map);
+
+    //Variable for the popup info window
 
     //Run the function to set the pins
     CreateMarker(pin_info, map);
