@@ -1,5 +1,7 @@
 import React from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import Header2 from "./header2";
+import Header from "./header";
 
 const containerStyle = {
   width: "400px",
@@ -32,7 +34,23 @@ function CreateMarker(positions, map) {
 
 function bindInfoWindow(marker, map) {
   var infowindow = new window.google.maps.InfoWindow({
-    content: "test",
+    content:
+      "<div class='map_info_wrapper'><div class='img_wrapper'><img src=https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhdXRpZnVsJTIwaG91c2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80></div>" +
+      "<div class='property_content_wrap'>" +
+      "<div class='property_title'>" +
+      "<span>Testing Building</span>" +
+      "</div>" +
+      "<div class='property_price'>" +
+      "<span>R200000</span>" +
+      "</div>" +
+      "<div class='property_bed_type'>" +
+      "<span>10</span>" +
+      "<ul><li>House</li></ul>" +
+      "</div>" +
+      "<div class='property_listed_date'>" +
+      "<span>Listed on 12 October 2023</span>" +
+      "</div>" +
+      "</div></a></div>",
   });
   window.google.maps.event.addListener(marker, "click", function () {
     infowindow.open(map, marker);
@@ -67,16 +85,19 @@ function MyComponent() {
   }, []);
 
   return isLoaded ? (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={center}
-      zoom={10}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-    >
-      {/* Child components, such as markers, info windows, etc. */}
-      <></>
-    </GoogleMap>
+    <>
+      <Header />
+      <Header2 />
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+        onLoad={onLoad}
+        onUnmount={onUnmount}
+      >
+        <></>
+      </GoogleMap>
+    </>
   ) : (
     <></>
   );
