@@ -3,7 +3,7 @@ import React from 'react';
 import Login from './login';
 import Header from './header';
 import Header2 from './header2';
-import Properties from './propertyListings';
+import PropertyListings from './propertyListings';
 import './mainpage.css'; //To style between components
 
 function MainPage   (){
@@ -11,7 +11,7 @@ function MainPage   (){
     <div className="main-page">
       <Header />
       <Header2 />
-      <Properties />
+      <PropertyListings />
 
     </div>
   );

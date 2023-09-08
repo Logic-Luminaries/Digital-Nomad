@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './propertyListings.css'; // You can create a CSS file for styling
+import PropertyPopup from './propertyPopup';
 
-function propertyListings (){
+function PropertyListings (){
+  const [selectedProperty, setSelectedProperty] = useState(null);
  // Dummy data for property listings
  const propertyListings = [
     {
@@ -36,18 +38,35 @@ function propertyListings (){
     },
   ];
 
+  const handlePropertyClick = (property) => {
+    setSelectedProperty(property);
+  };
+
+  const closePopup = () => {
+    setSelectedProperty(null);
+  };
+
   return (
     <div className="property-listing">
       {propertyListings.map((property, index) => (
-        <div key={index} className="property-card">
+        <div
+          key={index}
+          className="property-card"
+          onClick={() => handlePropertyClick(property)} // Open the popup on click
+        >
           <img src={property.imageUrl} alt={property.title} />
           <h3>{property.title}</h3>
           <p>{property.location}</p>
           <p>{property.price}</p>
         </div>
       ))}
+
+      {/* Conditionally render the popup */}
+      {selectedProperty && (
+        <PropertyPopup property={selectedProperty} onClose={closePopup} />
+      )}
     </div>
   );
 }
 
-export default propertyListings;
+export default PropertyListings;
