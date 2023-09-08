@@ -1,52 +1,30 @@
 /* filter.css */
 
 .Header2 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid lightgrey;
+}
+
+.button-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: hsla(125, 91%, 26%, 0.996); /* Adjust the background color */
-  color: white;
-  border-radius: 10px;
+  justify-content: flex-end;
+  margin-right: 60px;
 }
 
-.filter {
-  /* You can style the filter button container here if needed */
-  margin-right: 10px;
-}
-
-.filter__Button {
-  padding: 10px 20px;
-  background-color: #6bc6d4; /* Adjust the button's background color */
-  color: white;
-  border: none;
-  border-radius: 50px;
+.header2-button {
+  padding: 15px 25px;
+  border: 1px solid #ced3ce;
+  color: black;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, box-shadow 0.5s; /* Include the transition */
+  background-color: #ffffff;
+}
+.header2-button + .header2-button {
+  margin-left: 20px; /* Adjust the spacing as needed */
 }
 
-.filter__Button:hover {
-  background-color: #f9f9f9;
-  color: #6bc6d4;
-  box-shadow: 0 0 8px rgba(1, 65, 86, 0.595);
-}
-
-.map {
-  /* You can style the map button container here if needed */
-  margin-right: 10px;
-}
-
-.map__Button {
-  padding: 10px 20px;
-  background-color: #6bc6d4; /* Adjust the button's background color */
-  color: white;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, box-shadow 0.5s; /* Include the transition */
-}
-
-.map__Button:hover {
+.header2-button:hover {
   background-color: #f9f9f9;
   color: #6bc6d4;
   box-shadow: 0 0 8px rgba(1, 65, 86, 0.595);

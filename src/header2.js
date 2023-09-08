@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './header2.css'; // You can create a CSS file for styling
+import { LuSettings2 } from 'react-icons/lu'; 
+import {BiMap} from 'react-icons/bi';
 
 function Header2() {
   
@@ -12,15 +14,12 @@ function Header2() {
 
   };
 
- 
 
   return (
     <div className="Header2">
-      <div className="filter">
-        <button onClick= {handleFilter}className="filter__Button">Filter</button>
-      </div>
-      <div className="map">
-        <button onClick = {handleMap} className="map__Button">Map</button>
+      <div class="button-container">
+       <button onClick= {handleFilter}className="header2-button"><LuSettings2 />  Filter</button>
+      <button onClick = {handleMap} className="header2-button"><BiMap />   Map</button>
       </div>
     </div>
   );
