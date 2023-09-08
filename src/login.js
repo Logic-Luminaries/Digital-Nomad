@@ -41,11 +41,11 @@ function Login() {
 
   return (
     <div className="login-container">
-      <h2>Login Page</h2>
+      <h2 className="login-header" >Login Page</h2>
       <form onSubmit={handleLogin}>
         <div className="form-group">
-          <label>Email:</label>
-          <input
+          <label className="email-label" >Email:</label>
+          <input className="email-input"
             type="text"
             placeholder="Enter your email"
             value={email}
@@ -54,8 +54,8 @@ function Login() {
           {emailError && <div className="error">{emailError}</div>}
         </div>
         <div className="form-group">
-          <label>Password:</label>
-          <input
+          <label className="password-label">Password:</label>
+          <input className="password-input"
             type="password"
             placeholder="Enter your password"
             value={password}
@@ -63,7 +63,7 @@ function Login() {
           />
           {passwordError && <div className="error">{passwordError}</div>}
         </div>
-        <button type="submit">Login</button>
+        <button className="login-button"  type="submit">Login</button>
         <p className="register link">
           Don't have an account? <Link to="/register">Register</Link>
         </p>

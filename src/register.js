@@ -52,11 +52,11 @@ function Register() {
 
   return (
     <div className="register-container">
-      <h2>Register Page</h2>
+      <h2 className="register-header">Register Page</h2>
       <form onSubmit={handleRegister}>
         <div className="form-group">
-          <label>Email:</label>
-          <input
+          <label className="email-label">Email:</label>
+          <input className="email-input"
             type="text"
             placeholder="Enter your email"
             value={email}
@@ -65,8 +65,8 @@ function Register() {
           {emailError && <div className="error">{emailError}</div>}
         </div>
         <div className="form-group">
-          <label>Password:</label>
-          <input
+          <label className="password-label">Password:</label>
+          <input className="password-input"
             type="password"
             placeholder="Enter your password"
             value={password}
@@ -75,8 +75,8 @@ function Register() {
           {passwordError && <div className="error">{passwordError}</div>}
         </div>
         <div className="form-group">
-          <label>Confirm Password:</label>
-          <input
+          <label className="password-label">Confirm Password:</label>
+          <input className="password-input"
             type="password"
             placeholder="Confirm your password"
             value={confirmPassword}
@@ -86,7 +86,7 @@ function Register() {
             <div className="error">{confirmPasswordError}</div>
           )}
         </div>
-        <button type="submit">Register</button>
+        <button className="register-button" type="submit">Register</button>
         <p className="login link">
           Already have an account? <Link to="/login">Login</Link>
         </p>
