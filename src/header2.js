@@ -9,8 +9,7 @@ function Header2() {
   };
 
   const handleMap = () => {
-    // Implement your sign-up logic here
-    alert('Map button clicked!'); // You can replace this with your actual sign-up code
+
   };
 
  
