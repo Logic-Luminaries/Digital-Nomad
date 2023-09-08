@@ -12,6 +12,7 @@ const center = {
 //Placeholder for the pin's information
 const pin_info = [
   {
+    id: 1,
     position: { lat: -26.111, lng: 28.049 },
     list_date: "2023-01-01",
     type: "House",
@@ -22,6 +23,7 @@ const pin_info = [
       "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmVhdXRpZnVsJTIwaG91c2V8ZW58MHx8MHx8fDA%3D&w=1000&q=80",
   },
   {
+    id: 2,
     position: { lat: -15, lng: 30 },
     list_date: "2023-08-13",
     type: "cottage",
@@ -32,6 +34,7 @@ const pin_info = [
       "https://people.com/thmb/Rq4-T9Jiu-hohH1zxcPFgdeszBQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(780x211:782x213)/barbie-Ken-malibu-Dream-House-Airbnb-tout-e18b10475a30478992ea81a023e8c1be.jpg",
   },
   {
+    id: 3,
     position: { lat: -30, lng: 10 },
     list_date: "2023-03-28",
     type: "House",
@@ -58,7 +61,8 @@ function CreateMarker(positions, map) {
       item.image,
       item.beds,
       item.type,
-      item.list_date
+      item.list_date,
+      item.id
     );
     marker.setMap(map);
   });
@@ -72,11 +76,14 @@ function bindInfoWindow(
   image,
   beds,
   type,
-  list_date
+  list_date,
+  id
 ) {
   var infowindow = new window.google.maps.InfoWindow({
     content:
-      "<div class='map_info_wrapper'><div class='img_wrapper'><img class=image src=" +
+      "<a href='/properties?id=" +
+      id +
+      "' <div class='map_info_wrapper'><div class='img_wrapper'><img class=image src=" +
       image +
       "></div>" +
       "<div class='property_content_wrap'>" +
