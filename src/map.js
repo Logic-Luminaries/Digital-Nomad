@@ -9,6 +9,21 @@ const center = {
   lng: 28.049,
 };
 
+const styles = {
+  default: [],
+  hide: [
+    {
+      featureType: "poi",
+      stylers: [{ visibility: "off" }],
+    },
+    {
+      featureType: "transit",
+      elementType: "labels.icon",
+      stylers: [{ visibility: "off" }],
+    },
+  ],
+};
+
 //Placeholder for the pin's information
 const pin_info = [
   {
@@ -26,7 +41,7 @@ const pin_info = [
     id: 2,
     position: { lat: -15, lng: 30 },
     list_date: "2023-08-13",
-    type: "cottage",
+    type: "Cottage",
     beds: 3,
     title: "Building 2",
     price: 230000,
@@ -131,6 +146,7 @@ function MyComponent() {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds);
+    map.setOptions({ styles: styles["hide"] });
     setMap(map);
 
     //Variable for the popup info window
