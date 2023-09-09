@@ -1,3 +1,10 @@
+.register-logo{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+  
   .register-container {
     position: absolute;
     top: 50%;
@@ -57,7 +64,7 @@
   }
   
   .register-button {
-    background-color: #007bff;
+    background-color: #ff385c;
     color: #fff;
     padding: 12px 24px;
     border: none;

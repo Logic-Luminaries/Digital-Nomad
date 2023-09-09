@@ -11,7 +11,9 @@ function PropertyPopup({ property, onClose }) {
           <button className="close-button" onClick={onClose}>
             X
           </button>
+          <div className="image-holder">
           <img src={property.imageUrl} alt={property.title} />
+          </div>
           <h3>{property.title}</h3>
           <p>{property.location}</p>
           <p>{property.price}</p>

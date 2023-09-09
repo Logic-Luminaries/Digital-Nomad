@@ -51,6 +51,8 @@ function Register() {
   };
 
   return (
+    <div >
+    <img src="./logo.png" alt="Logo" className="register-logo" />
     <div className="register-container">
       <h2 className="register-header">Register Page</h2>
       <form onSubmit={handleRegister}>
@@ -91,7 +93,8 @@ function Register() {
           Already have an account? <Link to="/login">Login</Link>
         </p>
       </form>
-    </div>
+      </div>    
+      </div>
   );
 }
 

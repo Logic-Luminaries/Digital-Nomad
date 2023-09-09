@@ -9,37 +9,32 @@ function Login() {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  const validateEmail = (email) => {
-    // Very basic email validation
-    if (!email || !email.includes('@') || !email.includes('.')) {
-      setEmailError('Please enter a valid email address.');
-    } else {
-      setEmailError('');
-    }
-  };
-
-  const validatePassword = (password) => {
-    if (!password) {
-      setPasswordError('Please enter a password.');
-    } else {
-      setPasswordError('');
-    }
-  };
 
   const handleLogin = (e) => {
     e.preventDefault();
+    let emailError = '';
+    let passwordError = '';
+  
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      emailError = 'Please enter a valid email address.';
+    }
+  
+    if (!password) {
+      passwordError = 'Please enter a password.';
+    }
+  
+    setEmailError(emailError);
+    setPasswordError(passwordError);
+  
 
-    // Validate email and password before proceeding
-    validateEmail(email);
-    validatePassword(password);
 
     if (!emailError && !passwordError) {
-      // You can add your login logic here (not implemented in this example)
-      console.log('Login clicked');
     }
   };
 
   return (
+    <div >
+    <img src="./logo.png" alt="Logo" className="login-logo" />
     <div className="login-container">
       <h2 className="login-header" >Login Page</h2>
       <form onSubmit={handleLogin}>
@@ -63,11 +58,14 @@ function Login() {
           />
           {passwordError && <div className="error">{passwordError}</div>}
         </div>
+
         <button className="login-button"  type="submit">Login</button>
+
         <p className="register link">
           Don't have an account? <Link to="/register">Register</Link>
         </p>
       </form>
+    </div>
     </div>
   );
 }

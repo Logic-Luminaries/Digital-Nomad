@@ -2,35 +2,52 @@
 
 /* Styles for the popup container */
 .property-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Ensure the popup appears on top of other content */
-  }
-  
-  /* Styles for the popup content */
-  .popup-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    position: relative;
-  }
-  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure the popup appears on top of other content */
+}
+
+/* Styles for the popup content */
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  position: relative;
+}
+
 /* Style for the close button (red "x" in the top-right corner) */
 .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 24px;
-    color: red; /* Set the color to red */
-  }
-  
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: red; /* Set the color to red */
+}
+
+/* Styles for the property image container */
+.image-holder {
+  max-width: 100%; /* Limit the image width to fit the container */
+  max-height: 100%; /* Adjust the maximum height as needed */
+  margin: 0 auto; /* Center the image horizontally */
+  overflow: hidden; /* Hide overflowing content */
+}
+
+/* Styles for the property image */
+.image-holder img {
+  border-radius: 10px;
+  width: 95%;
+  height: 80%;
+  object-fit: cover; /* Properly fit the image within the container */
+}
