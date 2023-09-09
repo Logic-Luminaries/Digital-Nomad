@@ -1,0 +1,43 @@
+.map-canvas{
+	height: 500px;
+}
+
+.gm-style-iw.gm-style-iw-c{
+	size: 10;
+}
+
+.gm-style .gm-style-iw {
+    font-size: 13px;
+    overflow: hidden;
+}
+
+.img_wrapper{
+	display: flex;
+    flex-direction: column;
+	flex-wrap: wrap;
+	align-content: space-around;
+	justify-content: normal;
+	align-items: normal
+}
+
+div.property_content_wrap{
+	display: flex;
+    flex-direction: column;
+	flex-wrap: wrap;
+	align-content: space-around;
+	justify-content: normal;
+	align-items: normal
+}
+
+.gm-style-iw-d{
+	align-items: center;
+}
+
+ div.property_title{
+	font-size: 20px;
+}
+
+.image{
+	height: 50%;
+	width: 50%;
+}
