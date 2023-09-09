@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './header2.css'; // You can create a CSS file for styling
 import { LuSettings2 } from 'react-icons/lu';
 import { BiMap } from 'react-icons/bi';
+import {BsHouse} from 'react-icons/bs';
 
 function Header2({ onMapButtonClick, showMap }) {
   const handleFilter = () => {
@@ -21,7 +22,15 @@ function Header2({ onMapButtonClick, showMap }) {
           <LuSettings2 /> Filter
         </button>
         <button onClick={handleMapToggle} className="header2-button">
-          {showMap ? 'Property' : <BiMap />} {showMap ? '' : 'Map'}
+          {showMap ? (
+            <>
+              <BsHouse /> Properties
+            </>
+          ) : (
+            <>
+              <BiMap /> Map
+            </>
+          )}
         </button>
       </div>
     </div>
