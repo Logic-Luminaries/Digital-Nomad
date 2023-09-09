@@ -161,8 +161,6 @@ function MyComponent() {
 
   return isLoaded ? (
     <>
-      <Header />
-      <Header2 />
       <GoogleMap
         center={center}
         zoom={10}
