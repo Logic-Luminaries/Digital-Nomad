@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './header2.css'; // You can create a CSS file for styling
 import { LuSettings2 } from 'react-icons/lu';
 import { BiMap } from 'react-icons/bi';

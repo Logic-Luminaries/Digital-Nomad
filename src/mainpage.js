@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Login from './login';
 import Header from './header';
 import Header2 from './header2';
 import PropertyListings from './propertyListings';
