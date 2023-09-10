@@ -17,7 +17,11 @@ function Header() {
         <img src="TopLeftHeaderLogo.jpeg" alt="Logo" className="header__logo" />
       </div>
       <div className="header__middle">
+        <Link to="/booking">
         <button className="header__bookButton">Book</button>
+        </Link>
+        
+
       </div>
       <div className="header__right">
         <img
