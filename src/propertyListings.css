@@ -32,18 +32,24 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
+    font-family: 'Roboto', sans-serif;
+
   }
   
   .property-card p {
     font-size: 1rem;
     margin: 0 0 10px 10px;
     color: #555;
+    font-family: 'Roboto', sans-serif;
+
   }
   
   /* Style the price to stand out */
   .property-card p:last-child {
     font-weight: bold;
     color: #333;
+    font-family: 'Roboto', sans-serif;
+
   }
 
   

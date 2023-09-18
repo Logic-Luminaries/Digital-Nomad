@@ -106,11 +106,13 @@
     position: absolute;
     top: calc(100% + 10px); /* Position below the profile button with a little spacing */
     right: 0;
-    background-color:  #b8e6f3;
+    background-color:  #ffffff;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     display: none; /* Initially hide the popup */
+    font-family: 'Roboto', sans-serif;
+    z-index: 1000;
   }
   
   .header__right .header__popup {
