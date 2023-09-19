@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './FilterPopup.css'; // Create a CSS file for styling
+import './filterPopup.css'; // Create a CSS file for styling
 
 function FilterPopup({ onApplyFilter, onClose, onClearFilters, initialFilters }) {
   const [filters, setFilters] = useState(initialFilters || {});
