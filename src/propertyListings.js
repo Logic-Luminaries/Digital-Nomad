@@ -67,14 +67,12 @@ function PropertyListings ({ filters }){
   const filteredProperties = propertyListings.filter((property) => {
     if (!filters || Object.keys(filters).length === 0) return true;
 
-    const { minPrice, maxPrice, minBeds, maxBeds } = filters;
+    const { minPrice, maxPrice, minBeds } = filters;
     const propertyPrice = parseFloat(property.price.split('R')[1]);
     return (
       (!minPrice || propertyPrice >= minPrice) &&
       (!maxPrice || propertyPrice <= maxPrice) &&
-      (!minBeds || property.beds >= minBeds) &&
-      (!maxBeds || property.beds <= maxBeds)
-    );
+      (!minBeds || property.beds >= minBeds)     );
   });
 
   

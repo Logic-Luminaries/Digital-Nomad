@@ -6,16 +6,14 @@ function FilterPopup({ onApplyFilter, onClose, onClearFilters, initialFilters })
   const [minPrice, setMinPrice] = useState(filters.minPrice || '');
   const [maxPrice, setMaxPrice] = useState(filters.maxPrice || '');
   const [minBeds, setMinBeds] = useState(filters.minBeds || '');
-  const [maxBeds, setMaxBeds] = useState(filters.maxBeds || '');
 
   useEffect(() => {
     setFilters({
       minPrice: parseFloat(minPrice),
       maxPrice: parseFloat(maxPrice),
       minBeds: parseInt(minBeds),
-      maxBeds: parseInt(maxBeds),
     });
-  }, [minPrice, maxPrice, minBeds, maxBeds]);
+  }, [minPrice, maxPrice, minBeds]);
 
   const handleApplyFilter = () => {
     onApplyFilter(filters);
@@ -27,7 +25,6 @@ function FilterPopup({ onApplyFilter, onClose, onClearFilters, initialFilters })
     setMinPrice('');
     setMaxPrice('');
     setMinBeds('');
-    setMaxBeds('');
     onClearFilters(); // Notify the parent component to clear filters
     onClose(); // Close the popup
   };
@@ -36,7 +33,7 @@ function FilterPopup({ onApplyFilter, onClose, onClearFilters, initialFilters })
     <div className="filter-popup">
       <div className="filter-content">
       <h2>Filter Properties</h2>
-      <label>
+      <label className="min-price">
         Min Price:
         <input
           type="number"
@@ -44,7 +41,7 @@ function FilterPopup({ onApplyFilter, onClose, onClearFilters, initialFilters })
           onChange={(e) => setMinPrice(e.target.value)}
         />
       </label>
-      <label>
+      <label className="max-price">
         Max Price:
         <input
           type="number"
@@ -52,20 +49,12 @@ function FilterPopup({ onApplyFilter, onClose, onClearFilters, initialFilters })
           onChange={(e) => setMaxPrice(e.target.value)}
         />
       </label>
-      <label>
+      <label className="min-beds">
         Min Beds:
         <input
           type="number"
           value={minBeds}
           onChange={(e) => setMinBeds(e.target.value)}
-        />
-      </label>
-      <label>
-        Max Beds:
-        <input
-          type="number"
-          value={maxBeds}
-          onChange={(e) => setMaxBeds(e.target.value)}
         />
       </label>
       <div className="filter-buttons">
