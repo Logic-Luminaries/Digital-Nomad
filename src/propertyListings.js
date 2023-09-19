@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './propertyListings.css'; // You can create a CSS file for styling
 import PropertyPopup from './propertyPopup';
 
-function PropertyListings (){
+function PropertyListings ({ filters }){
   const [selectedProperty, setSelectedProperty] = useState(null);
  // Dummy data for property listings
  const propertyListings = [
@@ -63,6 +63,21 @@ function PropertyListings (){
     },
   ];
 
+    // Filter properties based on the selected criteria
+  const filteredProperties = propertyListings.filter((property) => {
+    if (!filters || Object.keys(filters).length === 0) return true;
+
+    const { minPrice, maxPrice, minBeds, maxBeds } = filters;
+    const propertyPrice = parseFloat(property.price.split('R')[1]);
+    return (
+      (!minPrice || propertyPrice >= minPrice) &&
+      (!maxPrice || propertyPrice <= maxPrice) &&
+      (!minBeds || property.beds >= minBeds) &&
+      (!maxBeds || property.beds <= maxBeds)
+    );
+  });
+
+  
   const handlePropertyClick = (property) => {
     setSelectedProperty(property);
   };
@@ -73,7 +88,7 @@ function PropertyListings (){
 
   return (
     <div className="property-listing">
-      {propertyListings.map((property, index) => (
+      {filteredProperties.map((property, index) => (
         <div
           key={index}
           className="property-card"
