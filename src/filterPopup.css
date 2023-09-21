@@ -13,25 +13,32 @@
 }
 
 /* Popup */
+/* Popup */
 .filter-popup {
   background-color: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  width: 700px;
-  height: 700px;
-  
+  width: 700px; /* You can adjust this width as needed */
+  max-width: 100%; /* Add max-width property to ensure responsiveness */
+  height: 500px;
+  overflow-y: auto;
+  position: relative; /* Add this to position the footer */
+  overflow-x: hidden;
 }
 
-.filterclose-holder {
+/* Header */
+.filter-header {
   display: flex;
-  justify-content: space-between; /* This will push the Filter to the left and X to the right */
-  align-items: center; /* Center the content vertically */
+  justify-content: space-between;
+  align-items: center;
   padding-right: 30px;
   padding-left: 40px;
   border-bottom: 1px solid #eee; /* Add a border to the bottom */
+
 }
 
 .filter-heading {
+  font-size: 24px; /* Adjust the font size as needed */
   flex: 1; /* This makes the "Filter" div take up the available space */
   text-align: center; /* Center the text horizontally */
 }
@@ -44,19 +51,16 @@
 }
 
 .filterclose-button:hover {
-  background-color: #eee;
+  color: #ca2020; /* Close button color on hover */
   border-radius: 50%;
-  color: #ca2020;
+  background-color: #eee;
 }
 
+/* Filter Content */
 .filter-content {
   padding-left: 40px;
   padding-right: 40px;
-  overflow-y:auto ;
-  overflow-x: auto;
-  max-width: 100%;
 }
-
 
 /* Label and Input Fields */
 label {
@@ -70,11 +74,16 @@ input[type="number"] {
   border-radius: 4px;
 }
 
-/* Filter Buttons */
-.filter-buttons {
-  margin-top: 15px;
+.filter-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #eee;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .apply-button,
@@ -83,7 +92,9 @@ input[type="number"] {
   color: #fff;
   border: none;
   border-radius: 4px;
-  padding: 10px 20px;
+  padding: 10px 20px; /* Adjust the padding to move buttons away from the edge */
+  margin-right: 20px; /* Add margin to separate the buttons */
+  margin-left: 20px;
   cursor: pointer;
 }
 

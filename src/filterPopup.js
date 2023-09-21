@@ -31,12 +31,12 @@ function FilterPopup({ onApplyFilter, onClose, onClearFilters, initialFilters })
   return (
     <div className="filter-page">
      <div className="filter-popup">
-      <div className="filterclose-holder">
-        <h2 className="filter-heading">Filter</h2>
-        <button className="filterclose-button" onClick={onClose}>
-          X
-        </button>
-      </div>
+     <header className="filter-header">
+          <h2 className="filter-heading">Filter</h2>
+          <button className="filterclose-button" onClick={onClose}>
+            X
+          </button>
+        </header>
         <div className="filter-content">
           <label className="min-price">
             Min Price:
@@ -62,15 +62,16 @@ function FilterPopup({ onApplyFilter, onClose, onClearFilters, initialFilters })
               onChange={(e) => setMinBeds(e.target.value)}
             />
           </label>
-          <div className="filter-buttons">
-            <button className="apply-button" onClick={handleApplyFilter}>
-              Apply Filter
-            </button>
-            <button className="clear-button" onClick={handleClearFilters}>
-              Clear All
-            </button>
           </div>
-        </div>
+          <footer className="filter-footer">
+          <button className="apply-button" onClick={handleApplyFilter}>
+            Apply Filter
+          </button>
+          <button className="clear-button" onClick={handleClearFilters}>
+            Clear All
+          </button>
+        </footer>
+
       </div>
     </div>
   );
