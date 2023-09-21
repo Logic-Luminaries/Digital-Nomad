@@ -1,6 +1,6 @@
 /* propertyPopup.css */
 
-.property-popup {
+.popup-page {
   position: fixed;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@
   z-index: 1000; /* Ensure the popup appears on top of other content */
 }
 
-.popup {
+.property-popup {
   background-color: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -21,21 +21,21 @@
   height: 700px;
 }
 
-.close-holder {
+.propertyclose-holder {
   text-align: right;
   padding-top: 15px;
   padding-bottom: 15px;
   padding-right: 20px;
 }
 
-.close-button {
+.propertyclose-button {
   background-color: transparent;
   border: none;
   font-size: 20px;
   cursor: pointer;
 }
 
-.close-button:hover {
+.propertyclose-button:hover {
   background-color: #eee;
   border-radius: 50%;
   color: #ca2020;

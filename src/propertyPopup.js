@@ -5,10 +5,10 @@ function PropertyPopup({ property, onClose }) {
   // This component receives the selected property as a prop and a function to close the popup
 
   return (
-    <div className="property-popup">
-      <div className="popup">
-        <div className="close-holder">
-          <button className="close-button" onClick={onClose}>
+    <div className="popup-page">
+      <div className="property-popup">
+        <div className="propertyclose-holder">
+          <button className="propertyclose-button" onClick={onClose}>
             X
           </button>
         </div>
