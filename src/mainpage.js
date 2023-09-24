@@ -30,7 +30,7 @@ function MainPage() {
         onApplyFilter={applyFilter}
         onClearFilters={clearFilters} // Pass the clearFilters function
       />
-      {showMap ? <Map /> : <PropertyListings filters={filters} />}
+      {showMap ? <Map filters={filters} /> : <PropertyListings filters={filters} />}
     </div>
   );
 }
