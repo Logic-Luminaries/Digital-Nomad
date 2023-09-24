@@ -60,54 +60,69 @@
 
 .property-title {
   font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+
 }
 
 .property-location {
   font-size: 16px;
   color: #888;
   margin-top: 0px;
+  font-family: 'Roboto', sans-serif;
+
 }
 
 .property-price {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   color: #333;
   max-width: 100%;
   height: auto;
-  border-radius: 10px;
+  font-family: 'Roboto', sans-serif;
+  padding-bottom: 10px;
+  border-bottom: #9e9c9c 0.5px solid;
 }
 
-/* Style for all headings (including "Nearby") */
-.popup-content h4 {
-  font-size: 1.2rem; /* Adjust the font size as needed */
+.description-title,
+.amenities-title,
+.nearby-title {
+  font-size: 1.2rem; 
   margin-bottom: 10px;
-  color: #333; /* Adjust the color as needed */
+  color: #333; 
+  font-family: 'Roboto', sans-serif;
+
 }
 
-/* Styles for the amenities and description sections */
-.amenities,
-.description {
-  margin-top: 20px;
-}
-
-/* Style for the amenities list */
-.amenities ul {
-  list-style-type: disc; /* Use disc bullets for list items */
-  padding: 0;
-  margin-left: 20px; /* Add indentation for the list items */
-}
-
-/* Style for the list items in the amenities list */
-.amenities ul li {
-  margin-left: 10px; /* Adjust the indentation as needed */
+.property-description {
   text-align: left;
+  font-family: 'Roboto', sans-serif;
+
 }
 
-/* Style for the description text */
-.description p {
-  text-align: left;
-  color: #555; /* Adjust the color as needed */
+.property-nearby {
+  list-style-type: square; /* Use square bullets for the nearby list */
+  padding-left: 20px; /* Add some left padding to the list */
+  font-family: 'Roboto', sans-serif;
+  border-bottom: #9e9c9c 0.5px solid;
+  padding-bottom: 20px;
 }
 
+.property-nearby li {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px; /* Add spacing between nearby items */
+}
+
+.property-amenities {
+  list-style-type: circle; /* Use circle bullets for the amenities list */
+  padding-left: 20px; /* Add some left padding to the list */
+  font-family: 'Roboto', sans-serif;
+}
+
+.property-amenities li {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px; /* Add spacing between amenities items */
+}
 
 
