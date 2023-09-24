@@ -15,6 +15,7 @@ function PropertyListings ({ filters }){
       location: 'Johannesburg, SA',
       type: 'Apartment',
       beds: 2,
+      bathrooms: 1,
       price: 'R100/night',
       imageUrl: '/Images/property1.webp',
       amenities: ['Free Wi-Fi', 'Swimming Pool', 'Parking', 'Air Conditioning'],
@@ -30,6 +31,7 @@ function PropertyListings ({ filters }){
       location: 'Kimberly, SA',
       type: 'Cabin',
       beds: 4,
+      bathrooms: 3,
       price: 'R250/night',
       imageUrl: '/Images/property2.webp',
       amenities: ['Free Wi-Fi', 'Fireplace', 'Nature Trails', 'Private Lake'],
@@ -45,6 +47,7 @@ function PropertyListings ({ filters }){
       location: 'Cape Town, SA',
       type: 'Villa',
       beds: 8,
+      bathrooms: 10,
       price: 'R80/night',
       imageUrl: '/Images/property3.webp',
       amenities: ['Free Wi-Fi', 'Ocean View', 'Private Beach Access', 'Swimming Pool'],
@@ -60,6 +63,7 @@ function PropertyListings ({ filters }){
       location: 'Durban, SA',
       type: 'Apartment',
       beds: 4,
+      bathrooms: 4,
       price: 'R350/night',
       imageUrl: '/Images/property4.webp',
       amenities: ['Free Wi-Fi', 'Beachfront', 'Private Terrace', 'Gym'],
@@ -75,6 +79,7 @@ function PropertyListings ({ filters }){
       location: 'Drakensburg, SA',
       type: 'House',
       beds: 10,
+      bathrooms: 15,
       price: 'R150/night',
       imageUrl: '/Images/property5.webp',
       amenities: ['Free Wi-Fi', 'Beachfront', 'Private Terrace', 'Gym'],
@@ -88,12 +93,16 @@ function PropertyListings ({ filters }){
   const filteredProperties = propertyListings.filter((property) => {
     if (!filters || Object.keys(filters).length === 0) return true;
 
-    const { minPrice, maxPrice, minBeds } = filters;
+    const { minPrice, maxPrice, minBeds, minBathrooms , propertyTypes , amenities   } = filters;
     const propertyPrice = parseFloat(property.price.split('R')[1]);
     return (
       (!minPrice || propertyPrice >= minPrice) &&
       (!maxPrice || propertyPrice <= maxPrice) &&
-      (!minBeds || property.beds >= minBeds)     );
+      (!minBeds || property.beds >= minBeds) &&
+      (!minBathrooms || property.bathrooms >= minBathrooms) &&
+      (!propertyTypes || propertyTypes.length === 0 ||propertyTypes.includes(property.type) ) &&
+      (!amenities || amenities.length === 0 || amenities.every((amenity) => property.amenities.includes(amenity)))
+      );
   });
 
   

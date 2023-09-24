@@ -64,6 +64,39 @@
   padding-right: 40px;
 }
 
+.filter-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.apply-button,
+.clear-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px; /* Adjust the padding to move buttons away from the edge */
+  margin-right: 20px; /* Add margin to separate the buttons */
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.clear-button {
+  background-color: #dc3545;
+}
+
+.apply-button:hover,
+.clear-button:hover {
+  opacity: 0.8;
+}
+
 .price-range {
   padding-bottom: 10px;
   border-bottom: 1px solid #eee; /* Add a border to the bottom */
@@ -111,43 +144,132 @@
   outline: none;
 }
 
+
+.property-type{
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee; 
+}
+
 .propertytype-heading {
   font-size: 25px; /* Adjust the font size as needed */
   font-family: 'Roboto', sans-serif;
-
 }
 
-.filter-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  border-top: 1px solid #eee;
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-
-.apply-button,
-.clear-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px; /* Adjust the padding to move buttons away from the edge */
-  margin-right: 20px; /* Add margin to separate the buttons */
-  margin-left: 20px;
+.property-type-button {
+  background-color: #fff;
+  padding: 10px 20px; /* Adjust padding for larger buttons */
+  margin: 4px;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
   cursor: pointer;
+  outline: none;
+  width: calc(25% - 12px); /* Make buttons evenly spaced */
+  text-align: center;
+  border: 1px solid ;
 }
 
-.clear-button {
-  background-color: #dc3545;
+.property-type-button:hover {
+  background-color: #8c8e92;
+  color: #fff;
+
 }
 
-.apply-button:hover,
-.clear-button:hover {
-  opacity: 0.8;
+.property-type-button.selected {
+  background-color: #8c8e92;
+  color: #fff;
+  border: 1px solid #8c8e92;
 }
 
+.rooms{
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee; 
+}
 
+.rooms-heading {
+  font-size: 25px; /* Adjust the font size as needed */
+  font-family: 'Roboto', sans-serif;
+}
+
+.beds-heading {
+  font-size: 15px; /* Adjust the font size as needed */
+  font-family: 'Roboto', sans-serif;
+color: #313131;
+padding-bottom: 15px;
+}
+
+.beds-type-button {
+  background-color: #fff;
+  border: 1px solid;
+  padding: 10px 20px; /* Adjust padding for larger buttons */
+  margin: 4px;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.beds-type-button:hover {
+  background-color: #8c8e92;
+  color: #fff;
+}
+
+.beds-type-button.selected {
+  background-color: #8c8e92;
+  color: #fff;
+  border: 1px solid #8c8e92;
+}
+
+.bathrooms-heading {
+  font-size: 15px; /* Adjust the font size as needed */
+  font-family: 'Roboto', sans-serif;
+color: #313131;
+padding-bottom: 15px;
+padding-top: 15px;
+}
+
+.bathrooms-type-button {
+  background-color: #fff;
+  border: 1px solid;
+  padding: 10px 20px; /* Adjust padding for larger buttons */
+  margin: 4px;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.bathrooms-type-button:hover {
+  background-color: #8c8e92;
+  color: #fff;
+}
+
+.bathrooms-type-button.selected {
+  background-color: #8c8e92;
+  color: #fff;
+  border: 1px solid #8c8e92;
+}
+
+/* Amenities */
+.amenities {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.amenities-heading {
+  font-size: 25px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.amenities-options {
+  margin-top: 10px;
+}
+
+.amenities-options label {
+  margin-right: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.amenities-options input[type="checkbox"] {
+  margin-right: 5px;
+}
