@@ -32,7 +32,7 @@ function Header2({ onMapButtonClick, showMap, onApplyFilter, onClearFilters }) {
 
   return (
     <div className="Header2">
-      <div class="button-container">
+      <div className="button-container">
         <button onClick={handleFilter} className="header2-button">
         <LuSettings2 /> {filtersApplied  ? 'Filters Applied' : 'Filter'}
         </button>
