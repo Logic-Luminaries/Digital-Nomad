@@ -3,8 +3,6 @@ import React , {useCallback, useState} from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import "./map.css";
 
-//NEED TO WORK ON CLOSING THE POPUPS WHEN CLICKING ON ANOTHER ONE
-
 // Set the map's center position
 const center = {
   lat:  -28.958938769344897,
@@ -28,7 +26,7 @@ const styles = {
 };
 
 //Placeholder for the pin's information
-const pin_info = [
+const propertyListings = [
   {
       id: 1,
       position: { lat: -26.198857405708537, lng: 28.007386742232416 },
@@ -141,7 +139,7 @@ function CreateMarker(positions, map) {
   });
 }
 
-function MyComponent() {
+function Map() {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyBTNr9tdH-cWOydONwKcWUlxkLdty4A3IU",
@@ -152,7 +150,7 @@ function MyComponent() {
   const onLoad = useCallback(function callback(map) {
     map.setOptions({ styles: styles["hide"] });
     setMap(map);
-    CreateMarker(pin_info, map);
+    CreateMarker(propertyListings, map);
   }, []);
 
   const onUnmount = useCallback(function callback() {
@@ -176,4 +174,4 @@ function MyComponent() {
   );
 }
 
-export default MyComponent;
+export default Map;
