@@ -20,7 +20,7 @@
   border-radius: 5px;
   width: 700px; /* You can adjust this width as needed */
   max-width: 100%; /* Add max-width property to ensure responsiveness */
-  height: 500px;
+  height: 800px;
   overflow-y: auto;
   position: relative; /* Add this to position the footer */
   overflow-x: hidden;
@@ -41,6 +41,8 @@
   font-size: 24px; /* Adjust the font size as needed */
   flex: 1; /* This makes the "Filter" div take up the available space */
   text-align: center; /* Center the text horizontally */
+  font-family: 'Roboto', sans-serif;
+
 }
 
 .filterclose-button {
@@ -62,16 +64,57 @@
   padding-right: 40px;
 }
 
-/* Label and Input Fields */
-label {
-  font-weight: bold;
+.price-range {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee; /* Add a border to the bottom */
 }
 
-input[type="number"] {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.pricerange-heading {
+  font-size: 25px; /* Adjust the font size as needed */
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.price-block {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+
+}
+
+.min-block,
+.max-block {
+  border: 1px solid grey;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 200px;
+  border-radius: 10px;
+
+}
+
+.min-label,
+.max-label {
+  font-size: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.min-price,
+.max-price {
+  font-size: 20px;
+  display: flex;
+  max-width: 95%;
+  border: none;
+  outline: none;
+}
+
+.propertytype-heading {
+  font-size: 25px; /* Adjust the font size as needed */
+  font-family: 'Roboto', sans-serif;
+
 }
 
 .filter-footer {
@@ -106,3 +149,5 @@ input[type="number"] {
 .clear-button:hover {
   opacity: 0.8;
 }
+
+

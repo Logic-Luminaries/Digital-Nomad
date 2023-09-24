@@ -38,22 +38,76 @@ function FilterPopup({ onApplyFilter, onClose, onClearFilters, initialFilters })
           </button>
         </header>
         <div className="filter-content">
-          <label className="min-price">
-            Min Price:
-            <input
-              type="number"
-              value={minPrice}
-              onChange={(e) => setMinPrice(e.target.value)}
-            />
-          </label>
-          <label className="max-price">
-            Max Price:
-            <input
-              type="number"
+          <div className="price-range"> 
+          <h3 className="pricerange-heading">
+            Price Range
+            </h3>
+            <div className="price-block">             
+            <div className="min-block">
+            <div className="min-label">Minimum</div>
+            <div className="min-price">
+            <span aria-hidden="true">R</span>
+              <input
+              aria-label="R"
+                    className='min-price'
+                    type="numeric"
+                    value={minPrice}
+                    onChange={(e) => setMinPrice(e.target.value)}
+                  />
+                </div>
+            </div>
+            <span>&#8212;</span>
+            <div className="max-block">
+            <div className="max-label">Maximum</div>
+            <div className="max-price">
+            <span aria-hidden="true">R</span>
+              <input
+              aria-label="R"
+              className='max-price'
+              type="numeric"
               value={maxPrice}
               onChange={(e) => setMaxPrice(e.target.value)}
-            />
-          </label>
+                  />
+                </div>
+            </div></div>
+
+            </div>
+
+            <div className="prop-type"> 
+          <h3 className="propertytype-heading">
+            Property Type
+            </h3>
+            <div className="price-block">             
+            <div className="min-block">
+            <div className="min-label">Minimum</div>
+            <div className="min-price">
+            <span aria-hidden="true">R</span>
+              <input
+              aria-label="R"
+                    className='min-price'
+                    type="numeric"
+                    value={minPrice}
+                    onChange={(e) => setMinPrice(e.target.value)}
+                  />
+                </div>
+            </div>
+            <span>&#8212;</span>
+            <div className="max-block">
+            <div className="max-label">Maximum</div>
+            <div className="max-price">
+            <span aria-hidden="true">R</span>
+              <input
+              aria-label="R"
+              className='max-price'
+              type="numeric"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(e.target.value)}
+                  />
+                </div>
+            </div></div>
+
+            </div>
+          
           <label className="min-beds">
             Min Beds:
             <input
