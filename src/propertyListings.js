@@ -77,6 +77,10 @@ function PropertyListings ({ filters }){
       beds: 10,
       price: 'R150/night',
       imageUrl: '/Images/property5.webp',
+      amenities: ['Free Wi-Fi', 'Beachfront', 'Private Terrace', 'Gym'],
+      description:
+        'Experience luxury living in this beachfront penthouse with stunning beach views. The penthouse offers four bedrooms, a private terrace, and access to a fully equipped gym.',
+      nearby: ['Enjoy watersports on the beach', 'Dine at local seafood restaurants', 'Visit uShaka Marine World'],
     },
   ];
 
