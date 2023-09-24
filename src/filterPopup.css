@@ -279,9 +279,22 @@ padding-top: 15px;
 .amenities-options label {
   margin-right: 20px;
   font-family: 'Roboto', sans-serif;
-  font-size: 16px;
+  font-size: 18px; /* Increase the font size */
+  display: flex; /* Align text and checkbox horizontally */
+  align-items: center; /* Center text vertically */
 }
 
 .amenities-options input[type="checkbox"] {
   margin-right: 5px;
+  width: 20px; /* Increase the width of the checkbox */
+  height: 20px; /* Increase the height of the checkbox */
+  appearance: none; /* Remove the default checkbox style */
+  border: 2px solid #000; /* Add a black border to the checkbox */
+  border-radius: 3px; /* Add a slight border radius for style */
+  vertical-align: middle; /* Align the checkbox vertically with the text */
+  
+}
+
+.amenities-options input[type="checkbox"]:checked {
+  background-color: #000; /* Change the background color to black when selected */
 }
