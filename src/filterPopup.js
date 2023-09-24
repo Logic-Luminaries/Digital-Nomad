@@ -221,6 +221,39 @@ function FilterPopup({ onApplyFilter, onClose, onClearFilters, initialFilters })
               />
               Gym
             </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={isAmenitySelected('Parking')}
+                onChange={() => toggleAmenity('Parking')}
+              />
+              Parking
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={isAmenitySelected('Air Conditioning')}
+                onChange={() => toggleAmenity('Air Conditioning')}
+              />
+              Air Conditioning
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={isAmenitySelected('Fireplace')}
+                onChange={() => toggleAmenity('Fireplace')}
+              />
+              Fireplace
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={isAmenitySelected('Beachfront')}
+                onChange={() => toggleAmenity('Beachfront')}
+              />
+              Beachfront
+            </label>
+            
             </div>
         </div>
         </div>
