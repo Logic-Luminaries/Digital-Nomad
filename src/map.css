@@ -1,6 +1,4 @@
-/* map.css */
 
-/* Style for the map container */
 .map-canvas {
 	height: 700px; /* Set the height as per your requirement */
 	width: 100%; /* Set the width as needed */
@@ -45,7 +43,8 @@
   /* Add some spacing between elements */
   .marker-location::before,
   .marker-price::before,
-  .marker-type::before {
+  .marker-type::before,
+  .marker-beds::before {
 	content: '\2022'; /* Bullet point */
 	margin-right: 5px;
 	margin-left: -5px;

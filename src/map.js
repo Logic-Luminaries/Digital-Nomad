@@ -1,6 +1,5 @@
-
-import React , {useCallback, useState} from "react";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import React, {useState}  from "react";
+import { GoogleMap, useJsApiLoader ,Marker, InfoWindow} from "@react-google-maps/api";
 import "./map.css";
 
 // Set the map's center position
@@ -109,69 +108,80 @@ const propertyListings = [
     },
 ];
 
-function CreateMarker(positions, map) {
-  positions.forEach((item) => {
-    const marker = new window.google.maps.Marker({
-      position: item.position,
-      title: item.title,
-    });
-    const infowindow = new window.google.maps.InfoWindow({
-      content: `
-        <div class="info-window">
-          <img class="marker-image" src="${item.imageUrl}" alt="${item.title}" />
-          <h2 class="marker-title">${item.title}</h2>
-          <p class="marker-location"><strong>Location:</strong> ${item.location}</p>
-          <p class="marker-price"><strong>Price:</strong> ${item.price}</p>
-          <p class="marker-type"><strong>Type:</strong> ${item.type}</p>
-          <p class="marker-beds"><strong>Beds:</strong> ${item.beds}</p>
-        </div>
-      `,
-      
-    });
 
-    marker.infowindow = infowindow; // Store the infowindow as a property of the marker
 
-    window.google.maps.event.addListener(marker, "click", function () {
-      infowindow.open(map, marker);
-    });
-
-    marker.setMap(map);
-  });
-}
-
-function Map() {
+function Map({filters}) {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyBTNr9tdH-cWOydONwKcWUlxkLdty4A3IU",
   });
 
-  const [,setMap] = useState(null);
+  const [selectedProperty, setSelectedProperty] = useState(null);
 
-  const onLoad = useCallback(function callback(map) {
-    map.setOptions({ styles: styles["hide"] });
-    setMap(map);
-    CreateMarker(propertyListings, map);
-  }, []);
+   // Define a function to adjust the InfoWindow position
+   const adjustInfoWindowPosition = (markerPosition) => {
+    if (!markerPosition) return null;
+    // Calculate the adjusted position, for example, move it 50 pixels up
+    return { lat: markerPosition.lat + 0.005, lng: markerPosition.lng };
+  };
+  
+const filteredProperties = propertyListings.filter((property) => {
+  if (!filters || Object.keys(filters).length === 0) return true;
 
-  const onUnmount = useCallback(function callback() {
-    setMap(null);
-  }, []);
+  const { minPrice, maxPrice, minBeds, minBathrooms , propertyTypes , amenities   } = filters;
+  const propertyPrice = parseFloat(property.price.split('R')[1]);
+  return (
+    (!minPrice || propertyPrice >= minPrice) &&
+    (!maxPrice || propertyPrice <= maxPrice) &&
+    (!minBeds || property.beds >= minBeds) &&
+    (!minBathrooms || property.bathrooms >= minBathrooms) &&
+    (!propertyTypes || propertyTypes.length === 0 ||propertyTypes.includes(property.type) ) &&
+    (!amenities || amenities.length === 0 || amenities.every((amenity) => property.amenities.includes(amenity)))
+    );
+});
 
-  return isLoaded ? (
-    <>
-      <GoogleMap
-        center={center}
-        zoom={6}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
-        mapContainerClassName="map-canvas"
-      >
-        <></>
-      </GoogleMap>
-    </>
-  ) : (
-    <></>
-  );
+
+ 
+return isLoaded ? (
+  <>
+    <GoogleMap
+      center={center}
+      styles={styles["hide"]}
+      zoom={6}
+      mapContainerClassName="map-canvas"
+    >
+      {filteredProperties.map((property) => (
+        <Marker
+          key={property.id}
+          position={property.position}
+          onClick={() => {
+            setSelectedProperty(property);
+          }}
+        />
+      ))}
+
+      {selectedProperty && (
+        <InfoWindow
+        position={adjustInfoWindowPosition(selectedProperty.position)}
+                  onCloseClick={() => {
+            setSelectedProperty(null);
+          }}
+        >
+          <div class="info-window">
+          <img class="marker-image" src={selectedProperty.imageUrl} alt={selectedProperty.title} />
+          <h2 class="marker-title">{selectedProperty.title}</h2>
+          <p class="marker-location"><strong>Location:</strong> {selectedProperty.location}</p>
+          <p class="marker-price"><strong>Price:</strong> {selectedProperty.price}</p>
+          <p class="marker-type"><strong>Type:</strong> {selectedProperty.type}</p>
+          <p class="marker-beds"><strong>Beds:</strong> {selectedProperty.beds}</p>
+        </div>
+        </InfoWindow>
+      )}
+    </GoogleMap>
+  </>
+) : (
+  <></>
+);
 }
 
 export default Map;
