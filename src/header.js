@@ -6,10 +6,12 @@ import { BsPersonCircle } from 'react-icons/bs';
 import { AiOutlineSearch } from 'react-icons/ai';
 import BookingDatePicker from './booking'; // Import your Calendar component here
 
-function Header() {
+
+function Header({onDateSelect}) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false); // State to control the calendar visibility
 
+  
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
   };
@@ -18,13 +20,17 @@ function Header() {
     setIsCalendarOpen(!isCalendarOpen);
   };
 
-  const handleDateSelect = (startDate, endDate) => {
-    // Handle the selected start and end dates here
-    console.log('Start Date (in Header):', startDate);
-    console.log('End Date (in Header):', endDate);
+  const [, setStartDate] = useState(null); //initialise start and end dates
+  const [, setEndDate] = useState(null);
+  const handleDateSelect = (startDate, endDate) => { //a function to collect the start and end date
 
-    // Close the date picker
-    setIsCalendarOpen(false);
+    
+    setStartDate(startDate);
+    setEndDate(endDate);
+
+    setIsCalendarOpen(false);// set calendar to closed
+
+    onDateSelect(startDate,endDate); //to pass dates selected from the calendar
   };
 
   return (
@@ -47,7 +53,7 @@ function Header() {
         {isCalendarOpen && (
           <div className="datepicker-popup">
             <div className="datepicker-popup-content">
-              <BookingDatePicker onDateSelect={handleDateSelect} />
+              <BookingDatePicker onDateSelect={handleDateSelect} /> {/* call bookingdate picker and hanlde the dates*/}
             </div>
           </div>
         )}

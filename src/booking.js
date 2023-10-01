@@ -1,21 +1,30 @@
-// booking.js
-
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import './booking.css'
+import './booking.css';
+
 
 function BookingDatePicker({ onDateSelect }) {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const handleDateSelect = () => {
-    // Handle the selected start and end dates as needed
-    console.log('Start Date from booking.js:', startDate);
-    console.log('End Date from booking.js:', endDate);
 
+  const handleStartDateChange = (date) => {
+    // Log the selected start date immediately
+    console.log('Start Date from booking.js:', date);
+    setStartDate(date);
+  };
+
+  const handleEndDateChange = (date) => {
+    // Log the selected end date immediately
+    console.log('End Date from booking.js:', date);
+    setEndDate(date);
+  };
+
+  const handleDateSelect = () => {
     // Pass the selected dates back to the parent component
     onDateSelect(startDate, endDate);
+    
   };
 
   return (
@@ -24,7 +33,7 @@ function BookingDatePicker({ onDateSelect }) {
         <div className="start">
           <DatePicker
             selected={startDate}
-            onChange={(date) => setStartDate(date)}
+            onChange={handleStartDateChange}
             dateFormat="dd/MM/yyyy"
             placeholderText="Select start date"
           />
@@ -32,13 +41,16 @@ function BookingDatePicker({ onDateSelect }) {
         <div className="end">
           <DatePicker
             selected={endDate}
-            onChange={(date) => setEndDate(date)}
+            onChange={handleEndDateChange}
             dateFormat="dd/MM/yyyy"
             placeholderText="Select end date"
           />
         </div>
       </div>
-      <button onClick={handleDateSelect} class="closeButton">Close</button>
+      <button onClick={handleDateSelect} className="closeButton">
+        Apply
+      </button>
+      
     </div>
   );
 }

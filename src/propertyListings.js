@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import './propertyListings.css'; // You can create a CSS file for styling
 import PropertyPopup from './propertyPopup';
 
-function PropertyListings ({ filters }){
+
+function PropertyListings ({ filters, startDate, endDate }){
   const [selectedProperty, setSelectedProperty] = useState(null);
 
   // Dummy data for property listings
@@ -17,6 +18,8 @@ function PropertyListings ({ filters }){
       beds: 2,
       bathrooms: 1,
       price: 'R100/night',
+      availablefrom:'2023-10-01',
+      availableto:'2023-10-07',
       imageUrl: '/Images/property1.webp',
       amenities: ['Free Wi-Fi', 'Swimming Pool', 'Parking', 'Air Conditioning'],
       description:
@@ -33,6 +36,8 @@ function PropertyListings ({ filters }){
       beds: 4,
       bathrooms: 3,
       price: 'R250/night',
+      availablefrom:'2023-10-01',
+      availableto:'2023-10-07',
       imageUrl: '/Images/property2.webp',
       amenities: ['Free Wi-Fi', 'Fireplace', 'Nature Trails', 'Private Lake'],
       description:
@@ -89,23 +94,27 @@ function PropertyListings ({ filters }){
     },
   ];
 
-    // Filter properties based on the selected criteria
   const filteredProperties = propertyListings.filter((property) => {
-    if (!filters || Object.keys(filters).length === 0) return true;
-
-    const { minPrice, maxPrice, minBeds, minBathrooms , propertyTypes , amenities   } = filters;
     const propertyPrice = parseFloat(property.price.split('R')[1]);
-    return (
-      (!minPrice || propertyPrice >= minPrice) &&
-      (!maxPrice || propertyPrice <= maxPrice) &&
-      (!minBeds || property.beds >= minBeds) &&
-      (!minBathrooms || property.bathrooms >= minBathrooms) &&
-      (!propertyTypes || propertyTypes.length === 0 ||propertyTypes.includes(property.type) ) &&
-      (!amenities || amenities.length === 0 || amenities.every((amenity) => property.amenities.includes(amenity)))
-      );
+    const availableFromDate = new Date(property.availablefrom);
+    const availableToDate = new Date(property.availableto);
+
+    const meetsFilterCriteria =
+      (!filters || Object.keys(filters).length === 0) ||
+      ((!filters.minPrice || propertyPrice >= filters.minPrice) &&
+        (!filters.maxPrice || propertyPrice <= filters.maxPrice) &&
+        (!filters.minBeds || property.beds >= filters.minBeds) &&
+        (!filters.minBathrooms || property.bathrooms >= filters.minBathrooms) &&
+        (!filters.propertyTypes || filters.propertyTypes.length === 0 || filters.propertyTypes.includes(property.type)) &&
+        (!filters.amenities || filters.amenities.length === 0 || filters.amenities.every((amenity) => property.amenities.includes(amenity))));
+
+    const isWithinDateRange =
+      (!startDate || !endDate) ||
+      (availableFromDate <= endDate && availableToDate >= startDate);
+
+    return meetsFilterCriteria && isWithinDateRange;
   });
 
-  
   const handlePropertyClick = (property) => {
     setSelectedProperty(property);
   };
@@ -120,7 +129,7 @@ function PropertyListings ({ filters }){
         <div
           key={index}
           className="property-card"
-          onClick={() => handlePropertyClick(property)} // Open the popup on click
+          onClick={() => handlePropertyClick(property)}
         >
           <img src={property.imageUrl} alt={property.title} />
           <h3>{property.title}</h3>
@@ -129,7 +138,6 @@ function PropertyListings ({ filters }){
         </div>
       ))}
 
-      {/* Conditionally render the popup */}
       {selectedProperty && (
         <PropertyPopup property={selectedProperty} onClose={closePopup} />
       )}
@@ -138,5 +146,3 @@ function PropertyListings ({ filters }){
 }
 
 export default PropertyListings;
-
-
