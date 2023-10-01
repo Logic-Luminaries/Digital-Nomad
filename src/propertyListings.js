@@ -103,29 +103,27 @@ function PropertyListings ({ filters, startDate, endDate }){
     },
   ];
 
-    // Filter properties based on the selected criteria
   const filteredProperties = propertyListings.filter((property) => {
-    if (!filters || Object.keys(filters).length === 0) return true;
-
-    const { minPrice, maxPrice, minBeds, minBathrooms , propertyTypes , amenities   } = filters;
     const propertyPrice = parseFloat(property.price.split('R')[1]);
-    return (
-      (!minPrice || propertyPrice >= minPrice) &&
-      (!maxPrice || propertyPrice <= maxPrice) &&
-      (!minBeds || property.beds >= minBeds) &&
-      (!minBathrooms || property.bathrooms >= minBathrooms) &&
-      (!propertyTypes || propertyTypes.length === 0 ||propertyTypes.includes(property.type) ) &&
-      (!amenities || amenities.length === 0 || amenities.every((amenity) => property.amenities.includes(amenity)))
-      );
+    const availableFromDate = new Date(property.availablefrom);
+    const availableToDate = new Date(property.availableto);
+
+    const meetsFilterCriteria =
+      (!filters || Object.keys(filters).length === 0) ||
+      ((!filters.minPrice || propertyPrice >= filters.minPrice) &&
+        (!filters.maxPrice || propertyPrice <= filters.maxPrice) &&
+        (!filters.minBeds || property.beds >= filters.minBeds) &&
+        (!filters.minBathrooms || property.bathrooms >= filters.minBathrooms) &&
+        (!filters.propertyTypes || filters.propertyTypes.length === 0 || filters.propertyTypes.includes(property.type)) &&
+        (!filters.amenities || filters.amenities.length === 0 || filters.amenities.every((amenity) => property.amenities.includes(amenity))));
+
+    const isWithinDateRange =
+      (!startDate || !endDate) ||
+      (availableFromDate <= endDate && availableToDate >= startDate);
+
+    return meetsFilterCriteria && isWithinDateRange;
   });
 
-/*   // Define the start and end dates for availability
-var startDate =new Date('2023-09-27'); // null;
-var endDate = new Date('2023-09-29'); //null; */
-
-
-
-  if (startDate===null || endDate===null){
   const handlePropertyClick = (property) => {
     setSelectedProperty(property);
   };
@@ -133,14 +131,14 @@ var endDate = new Date('2023-09-29'); //null; */
   const closePopup = () => {
     setSelectedProperty(null);
   };
-  
+
   return (
     <div className="property-listing">
       {filteredProperties.map((property, index) => (
         <div
           key={index}
           className="property-card"
-          onClick={() => handlePropertyClick(property)} // Open the popup on click
+          onClick={() => handlePropertyClick(property)}
         >
           <img src={property.imageUrl} alt={property.title} />
           <h3>{property.title}</h3>
@@ -149,58 +147,11 @@ var endDate = new Date('2023-09-29'); //null; */
         </div>
       ))}
 
-      {/* Conditionally render the popup */}
       {selectedProperty && (
         <PropertyPopup property={selectedProperty} onClose={closePopup} />
       )}
     </div>
   );
-}
-
-else {
-  // Find all properties available within the specified date range
-  const matchingProperties = propertyListings.filter((property) => {
-    const availableFromDate = new Date(property.availablefrom);
-    const availableToDate = new Date(property.availableto);
-    return availableFromDate <= endDate && availableToDate >= startDate;
-  });
-
-  const handlePropertyClick = (specificProperty) => {
-    setSelectedProperty(specificProperty);
-  };
-
-  const closePopup = () => {
-    setSelectedProperty(null);
-  };
-
-  return (
-    <div className="property-listing">
-      {/* Conditionally render the specific properties */}
-      {matchingProperties.map((specificProperty) => (
-        <div
-          key={specificProperty.id}
-          className="property-card"
-          onClick={() => handlePropertyClick(specificProperty)}
-        >
-          <img src={specificProperty.imageUrl} alt={specificProperty.title} />
-          <h3>{specificProperty.title}</h3>
-          <p>{specificProperty.location}</p>
-          <p>{specificProperty.price}</p>
-        </div>
-      ))}
-
-      {/* Conditionally render the popup */}
-      {selectedProperty && (
-        <PropertyPopup property={selectedProperty} onClose={closePopup} />
-      )}
-    </div>
-  );
-}
-
 }
 
 export default PropertyListings;
-
-
-
-
