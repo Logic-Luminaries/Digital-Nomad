@@ -4,8 +4,6 @@ import Header2 from './header2';
 import PropertyListings from './propertyListings';
 import Map from './map'; // Import the Map component
 import './mainpage.css'; // To style between components
-import BookingDatePicker from './booking'
-import { handleDateSelect } from './booking'; // Import the function
 
 
 function MainPage() {

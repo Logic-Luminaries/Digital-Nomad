@@ -1,19 +1,10 @@
 import React, { useState } from 'react';
 import './propertyListings.css'; // You can create a CSS file for styling
 import PropertyPopup from './propertyPopup';
-import BookingDatePicker from './booking'
-import DatePicker from 'react-datepicker'; // Import DatePicker here
 
 
 function PropertyListings ({ filters, startDate, endDate }){
-/*   const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null); */
   const [selectedProperty, setSelectedProperty] = useState(null);
-  console.log("porp"+ startDate)
-/*   const handleDateSelect = (start, end) => {
-    setStartDate(start);
-    setEndDate(end);
-  }; */
 
   // Dummy data for property listings
   const propertyListings = [

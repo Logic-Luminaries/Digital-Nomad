@@ -5,8 +5,7 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { BsPersonCircle } from 'react-icons/bs';
 import { AiOutlineSearch } from 'react-icons/ai';
 import BookingDatePicker from './booking'; // Import your Calendar component here
-import DatePicker from 'react-datepicker'; // Import DatePicker here
-import PropertyListings from './propertyListings'
+
 
 function Header({onDateSelect}) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -21,8 +20,8 @@ function Header({onDateSelect}) {
     setIsCalendarOpen(!isCalendarOpen);
   };
 
-  const [startDate, setStartDate] = useState(null); //initialise start and end dates
-  const [endDate, setEndDate] = useState(null);
+  const [, setStartDate] = useState(null); //initialise start and end dates
+  const [, setEndDate] = useState(null);
   const handleDateSelect = (startDate, endDate) => { //a function to collect the start and end date
 
     
