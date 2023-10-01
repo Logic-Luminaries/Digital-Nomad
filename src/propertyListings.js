@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
 import './propertyListings.css'; // You can create a CSS file for styling
 import PropertyPopup from './propertyPopup';
+import BookingDatePicker from './booking'
+import DatePicker from 'react-datepicker'; // Import DatePicker here
 
-function PropertyListings ({ filters }){
+
+function PropertyListings ({ filters, startDate, endDate }){
+/*   const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null); */
   const [selectedProperty, setSelectedProperty] = useState(null);
+  console.log("porp"+ startDate)
+/*   const handleDateSelect = (start, end) => {
+    setStartDate(start);
+    setEndDate(end);
+  }; */
 
   // Dummy data for property listings
   const propertyListings = [
@@ -17,6 +27,8 @@ function PropertyListings ({ filters }){
       beds: 2,
       bathrooms: 1,
       price: 'R100/night',
+      availablefrom:'2023-10-01',
+      availableto:'2023-10-07',
       imageUrl: '/Images/property1.webp',
       amenities: ['Free Wi-Fi', 'Swimming Pool', 'Parking', 'Air Conditioning'],
       description:
@@ -33,6 +45,8 @@ function PropertyListings ({ filters }){
       beds: 4,
       bathrooms: 3,
       price: 'R250/night',
+      availablefrom:'2023-10-01',
+      availableto:'2023-10-07',
       imageUrl: '/Images/property2.webp',
       amenities: ['Free Wi-Fi', 'Fireplace', 'Nature Trails', 'Private Lake'],
       description:
@@ -105,7 +119,13 @@ function PropertyListings ({ filters }){
       );
   });
 
-  
+/*   // Define the start and end dates for availability
+var startDate =new Date('2023-09-27'); // null;
+var endDate = new Date('2023-09-29'); //null; */
+
+
+
+  if (startDate===null || endDate===null){
   const handlePropertyClick = (property) => {
     setSelectedProperty(property);
   };
@@ -113,7 +133,7 @@ function PropertyListings ({ filters }){
   const closePopup = () => {
     setSelectedProperty(null);
   };
-
+  
   return (
     <div className="property-listing">
       {filteredProperties.map((property, index) => (
@@ -137,6 +157,50 @@ function PropertyListings ({ filters }){
   );
 }
 
+else {
+  // Find all properties available within the specified date range
+  const matchingProperties = propertyListings.filter((property) => {
+    const availableFromDate = new Date(property.availablefrom);
+    const availableToDate = new Date(property.availableto);
+    return availableFromDate <= endDate && availableToDate >= startDate;
+  });
+
+  const handlePropertyClick = (specificProperty) => {
+    setSelectedProperty(specificProperty);
+  };
+
+  const closePopup = () => {
+    setSelectedProperty(null);
+  };
+
+  return (
+    <div className="property-listing">
+      {/* Conditionally render the specific properties */}
+      {matchingProperties.map((specificProperty) => (
+        <div
+          key={specificProperty.id}
+          className="property-card"
+          onClick={() => handlePropertyClick(specificProperty)}
+        >
+          <img src={specificProperty.imageUrl} alt={specificProperty.title} />
+          <h3>{specificProperty.title}</h3>
+          <p>{specificProperty.location}</p>
+          <p>{specificProperty.price}</p>
+        </div>
+      ))}
+
+      {/* Conditionally render the popup */}
+      {selectedProperty && (
+        <PropertyPopup property={selectedProperty} onClose={closePopup} />
+      )}
+    </div>
+  );
+}
+
+}
+
 export default PropertyListings;
+
+
 
 
