@@ -42,7 +42,7 @@ function MainPage() {
         
       />
       {showMap ? (
-        <Map filters={filters} />
+        <Map filters={filters} startDate={startDate} endDate={endDate} />
       ) : (
         <>
           <PropertyListings filters={filters} startDate={startDate} endDate={endDate} /> {/* Pass filters, start and end dates to property listings so that it can filter properties for these */}
