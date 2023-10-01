@@ -166,15 +166,24 @@ return isLoaded ? (
                   onCloseClick={() => {
             setSelectedProperty(null);
           }}
+          
         >
           <div class="info-window">
-          <img class="marker-image" src={selectedProperty.imageUrl} alt={selectedProperty.title} />
-          <h2 class="marker-title">{selectedProperty.title}</h2>
-          <p class="marker-location"><strong>Location:</strong> {selectedProperty.location}</p>
-          <p class="marker-price"><strong>Price:</strong> {selectedProperty.price}</p>
-          <p class="marker-type"><strong>Type:</strong> {selectedProperty.type}</p>
-          <p class="marker-beds"><strong>Beds:</strong> {selectedProperty.beds}</p>
-        </div>
+          <button className="info-windowclose-button" onClick={() => setSelectedProperty(null)}>
+        &times;
+      </button>
+      <div className="info-window-content">
+        <img className="marker-image" src={selectedProperty.imageUrl} alt={selectedProperty.title} />
+        <h2 className="marker-title">{selectedProperty.title}</h2>
+        <p className="marker-type">
+         {selectedProperty.type}
+        </p>
+        <p className="marker-price">
+          {selectedProperty.price}
+        </p>
+
+      </div>
+    </div>
         </InfoWindow>
       )}
     </GoogleMap>
