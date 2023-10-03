@@ -7,9 +7,10 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import BookingDatePicker from './booking'; // Import your Calendar component here
 
 
-function Header({onDateSelect}) {
+function Header({onDateSelect, onLocationSearch}) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false); // State to control the calendar visibility
+  const [locationQuery, setLocationQuery] = useState(''); // State to store the location search query
 
   
   const togglePopup = () => {
@@ -22,16 +23,18 @@ function Header({onDateSelect}) {
 
   const [, setStartDate] = useState(null); //initialise start and end dates
   const [, setEndDate] = useState(null);
-  const handleDateSelect = (startDate, endDate) => { //a function to collect the start and end date
 
-    
+  const handleDateSelect = (startDate, endDate) => { //a function to collect the start and end date
     setStartDate(startDate);
     setEndDate(endDate);
-
     setIsCalendarOpen(false);// set calendar to closed
-
     onDateSelect(startDate,endDate); //to pass dates selected from the calendar
   };
+
+  const handleLocationSearch = () => {
+    // Trigger the location search with the query
+    onLocationSearch(locationQuery);
+  }
 
   return (
     <div className="header">
@@ -44,6 +47,15 @@ function Header({onDateSelect}) {
         <div className="datepicker-popup">
           <div className="datepicker-popup-content">
             <BookingDatePicker onDateSelect={handleDateSelect} />
+            <input
+                type="text"
+                placeholder="Enter location"
+                value={locationQuery}
+                onChange={(e) => setLocationQuery(e.target.value)}
+              />
+              <button className="searchButton" onClick={handleLocationSearch}>
+                Search Location
+              </button>
           </div>
         </div>
       ) : (

@@ -3,7 +3,7 @@ import './propertyListings.css'; // You can create a CSS file for styling
 import PropertyPopup from './propertyPopup';
 
 
-function PropertyListings ({ filters, startDate, endDate }){
+function PropertyListings ({ filters, startDate, endDate, locationQuery  }){
   const [selectedProperty, setSelectedProperty] = useState(null);
 
   // Dummy data for property listings
@@ -112,7 +112,11 @@ function PropertyListings ({ filters, startDate, endDate }){
       (!startDate || !endDate) ||
       (availableFromDate <= endDate && availableToDate >= startDate);
 
-    return meetsFilterCriteria && isWithinDateRange;
+      const matchesLocationQuery =
+      !locationQuery ||
+      property.location.toLowerCase().includes(locationQuery.toLowerCase());
+
+    return meetsFilterCriteria && isWithinDateRange && matchesLocationQuery;
   });
 
   const handlePropertyClick = (property) => {

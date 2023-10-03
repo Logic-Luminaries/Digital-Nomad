@@ -13,6 +13,8 @@ function MainPage() {
   const [startDate, setStartDate] = useState(null); //initialise start and end dates
   const [endDate, setEndDate] = useState(null);
 
+  const [locationQuery, setLocationQuery] = useState('');
+
   const handleDateSelect = (start, end) => { //
     setStartDate(start);
     setEndDate(end);
@@ -30,10 +32,15 @@ function MainPage() {
     setFilters({});
   };
 
+  const handleLocationSearch = (query) => {
+    // Update the location search query state
+    setLocationQuery(query);
+  };
+
 
   return (
     <div className="main-page">
-      <Header onDateSelect={handleDateSelect}/> {/* capture dates from the calendar in header */}
+      <Header onDateSelect={handleDateSelect} onLocationSearch={handleLocationSearch} /> {/* capture dates from the calendar in header */}
       <Header2
         onMapButtonClick={toggleMap}
         showMap={showMap}
@@ -42,10 +49,10 @@ function MainPage() {
         
       />
       {showMap ? (
-        <Map filters={filters} startDate={startDate} endDate={endDate} />
+        <Map filters={filters} startDate={startDate} endDate={endDate} locationQuery={locationQuery} />
       ) : (
         <>
-          <PropertyListings filters={filters} startDate={startDate} endDate={endDate} /> {/* Pass filters, start and end dates to property listings so that it can filter properties for these */}
+          <PropertyListings filters={filters} startDate={startDate} endDate={endDate} locationQuery={locationQuery} /> {/* Pass filters, start and end dates to property listings so that it can filter properties for these */}
           
         </>
       )}

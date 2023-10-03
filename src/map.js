@@ -114,7 +114,7 @@ const propertyListings = [
 
 
 
-function Map({filters,startDate,endDate}) {
+function Map({filters,startDate,endDate,locationQuery}) {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyBTNr9tdH-cWOydONwKcWUlxkLdty4A3IU",
@@ -147,7 +147,11 @@ function Map({filters,startDate,endDate}) {
       (!startDate || !endDate) ||
       (availableFromDate <= endDate && availableToDate >= startDate);
 
-    return meetsFilterCriteria && isWithinDateRange;
+      const matchesLocationQuery =
+      !locationQuery ||
+      property.location.toLowerCase().includes(locationQuery.toLowerCase());
+
+    return meetsFilterCriteria && isWithinDateRange && matchesLocationQuery;
   });
 
 
