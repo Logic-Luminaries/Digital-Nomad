@@ -54,6 +54,8 @@ function PropertyListings ({ filters, startDate, endDate, locationQuery  }){
       beds: 8,
       bathrooms: 10,
       price: 'R80/night',
+      availablefrom:'2023-10-27',
+      availableto:'2023-10-31',
       imageUrl: '/Images/property3.webp',
       amenities: ['Free Wi-Fi', 'Ocean View', 'Private Beach Access', 'Swimming Pool'],
       description:
