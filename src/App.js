@@ -7,6 +7,9 @@ import MainPage from "./mainpage"; // Will need to switch between pages
 import Map from "./map";
 
 function App() {
+  //const [loggedInUsers, setLoggedInUsers ] = useState([{username: "admin", password: "admin"}]);
+  //Set initial state for logged in users in login page
+
   return (
     <Router>
       <Routes>
