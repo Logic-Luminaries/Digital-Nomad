@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 import './login.css';
 
 
-function Login() {
+function Login({ onLogin}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-
+const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
     let emailError = '';
@@ -21,15 +21,21 @@ function Login() {
   
     if (!password) {
       passwordError = 'Please enter a password.';
+    }else{
+      passwordError = 'Invalid email or password.';
     }
   
     setEmailError(emailError);
     setPasswordError(passwordError);
+
+
+  
+    const loggedIn = onLogin(email, password);
+    if (loggedIn) {
+      navigate("/");
+    } 
   
 
-
-    if (!emailError && !passwordError) {
-    }
   };
 
   return (

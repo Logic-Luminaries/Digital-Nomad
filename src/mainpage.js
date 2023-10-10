@@ -6,7 +6,7 @@ import Map from './map'; // Import the Map component
 import './mainpage.css'; // To style between components
 
 
-function MainPage() {
+function MainPage({ onLogout, loggedInUser }) {
   const [showMap, setShowMap] = useState(false);
   const [filters, setFilters] = useState(null);
 
@@ -36,18 +36,21 @@ function MainPage() {
     // Update the location search query state
     setLocationQuery(query);
   };
-
+  const handleLogoutClick = () => {
+    onLogout(); // Call the logout function passed from App.js
+  };
 
   return (
     <div className="main-page">
-      <Header onDateSelect={handleDateSelect} onLocationSearch={handleLocationSearch} /> {/* capture dates from the calendar in header */}
+      <Header onDateSelect={handleDateSelect} onLocationSearch={handleLocationSearch} onLogout={handleLogoutClick} loggedInUser={loggedInUser}
+ /> {/* capture dates from the calendar in header */}
       <Header2
         onMapButtonClick={toggleMap}
         showMap={showMap}
         onApplyFilter={applyFilter}
         onClearFilters={clearFilters} // Pass the clearFilters function
-        
       />
+
       {showMap ? (
         <Map filters={filters} startDate={startDate} endDate={endDate} locationQuery={locationQuery} />
       ) : (

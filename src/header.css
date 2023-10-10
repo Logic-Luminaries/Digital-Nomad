@@ -1,9 +1,16 @@
-/*  If you want the header section to take up the whole top space, uncomment below */
-/* body{ 
-   margin: 0;
-   padding:0;
-} */
+.welcome-message {
+  font-size: 16px;
+  color: #333; /* Change the color to your desired text color */
+  margin-bottom: 10px; /* Adjust the margin as needed */
+border-bottom: 1px solid lightgrey;
 
+}
+
+/* Style the user's email separately if needed */
+.welcome-message p {
+  font-weight: bold; /* Make the email text bold */
+  /* Add any other styles for the email */
+}
 .header {
     display: flex;
     justify-content: space-between;
@@ -106,9 +113,11 @@
     position: absolute;
     top: calc(100% + 10px); /* Position below the profile button with a little spacing */
     right: 0;
+    width: 170px;
+    text-align: center;
     background-color:  #ffffff;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     display: none; /* Initially hide the popup */
     font-family: 'Roboto', sans-serif;
@@ -121,13 +130,18 @@
   
   .header__popup button {
     padding: 10px;
+    font-size: 15px;
     width: 100%;
     text-align: left;
-    border: none;
+border: none;
     background: none;
     cursor: pointer;
   }
+
+  
   
   .header__popup button:hover {
     background-color: #f0f0f0;
+    border-radius: 15px;
+
   }
