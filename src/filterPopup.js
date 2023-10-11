@@ -253,6 +253,30 @@ function FilterPopup({ onApplyFilter, onClose, onClearFilters, initialFilters })
               />
               Beachfront
             </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={isAmenitySelected('Hiking Trails')}
+                onChange={() => toggleAmenity('Hiking Trails')}
+              />
+              Hiking
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={isAmenitySelected('BBQ Grill')}
+                onChange={() => toggleAmenity('BBQ Grill')}
+              />
+              BBQ
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={isAmenitySelected('Views')}
+                onChange={() => toggleAmenity('Views')}
+              />
+              Views
+            </label>
             
             </div>
         </div>
