@@ -4,9 +4,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './booking.css';
 
 
-function BookingDatePicker({ onDateSelect }) {
+function BookingDatePicker({ onDateSelect, onLocationSearch, change, query }) {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+
+  const [locationQuery, setLocationQuery] = useState('');
 
 
   const handleStartDateChange = (date) => {
@@ -27,9 +29,19 @@ function BookingDatePicker({ onDateSelect }) {
     
   };
 
+  /* we still need to reference below fucntion however to use it */
+  const handleLocationSearch = () => {}
+
   return (
     <div className="datepicker-popup">
       <div className="datepicker-popup-content">
+      <input className = "xyz"
+            type="text"
+            placeholder="Enter location"
+            value={query} /* we have to take the query and change from teh header.js  */
+            onChange={change} /*  teh header.js passes the query and chaneg to the propertylisting for filtering */
+        />
+
         <div className="start">
           <DatePicker
             selected={startDate}
@@ -46,8 +58,16 @@ function BookingDatePicker({ onDateSelect }) {
             placeholderText="Select end date"
           />
         </div>
+      
+          
       </div>
-      <button onClick={handleDateSelect} className="closeButton">
+      <button
+        onClick={() => {
+          handleDateSelect();
+          onLocationSearch(); //we use this function from the header.js
+        }}
+        className="closeButton"
+      >
         Apply
       </button>
       

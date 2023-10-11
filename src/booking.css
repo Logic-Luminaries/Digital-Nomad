@@ -19,6 +19,16 @@
     white-space: nowrap; /* Prevent wrapping to new lines */
   }
   
+ .xyz{ /* the location input container within the booking.js file --> restyling */
+    background-color: #ffffff ; /* Set the background color to  */
+    color: #ff385c ; /* Set the text color to */
+    text-align: center;
+    border: 1px solid #ff385c; /* Set a color border */
+    border-top-left-radius: 75px;
+    border-bottom-left-radius: 75px;
+    height: 58px; /* for some reason this  height is little different to start and end input container heights */
+ } 
+
   .start,
   .end {
     display: inline-block; /* Display the date pickers inline */
@@ -32,9 +42,10 @@ input[type="text"][placeholder="Select start date"]{
     color: #ff385c ; /* Set the text color to */
     text-align: center;
     border: 1px solid #ff385c; /* Set a color border */
-    border-top-left-radius: 75px;
-    border-bottom-left-radius: 75px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
     padding: 3%;
+    height: 50px;
   }
   
 /* Style the date picker's calendar to be blue */
@@ -46,6 +57,7 @@ input[type="text"][placeholder="Select end date"]{
     border-top-right-radius: 75px;
     border-bottom-right-radius: 75px;
     padding: 3%;
+    height: 50px;
     margin-top: 5%; 
   }
 
