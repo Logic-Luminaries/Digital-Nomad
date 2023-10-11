@@ -91,10 +91,6 @@ function Header({onDateSelect, onLocationSearch , onLogout, loggedInUser  }) {
                   loggedInUser.email.split('@')[0].slice(1)}{' '}</p>}
       </div>
 
-
-          <Link to="/">
-            <button>About</button>
-          </Link>
           <button className="logout-button" onClick={handleLogoutClick}>
         Logout
       </button>
