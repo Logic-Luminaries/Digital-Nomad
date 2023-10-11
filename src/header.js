@@ -30,9 +30,16 @@ function Header({onDateSelect, onLocationSearch}) {
     setIsCalendarOpen(false);// set calendar to closed
     onDateSelect(startDate,endDate); //to pass dates selected from the calendar
   };
+  
+  const handleLocationInputChange = (e) => {
+    // Update the locationQuery state when the input value changes
+    console.log('Input Value:', e.target.value);
+    setLocationQuery(e.target.value);
+  };
 
   const handleLocationSearch = () => {
     // Trigger the location search with the query
+    console.log('Location Query Triggered from header:', locationQuery);
     onLocationSearch(locationQuery);
   }
 
@@ -46,16 +53,8 @@ function Header({onDateSelect, onLocationSearch}) {
         // Render the datepicker when the calendar is open
         <div className="datepicker-popup">
           <div className="datepicker-popup-content">
-            <BookingDatePicker onDateSelect={handleDateSelect} />
-            <input
-                type="text"
-                placeholder="Enter location"
-                value={locationQuery}
-                onChange={(e) => setLocationQuery(e.target.value)}
-              />
-              <button className="searchButton" onClick={handleLocationSearch}>
-                Search Location
-              </button>
+            <BookingDatePicker onDateSelect={handleDateSelect} onLocationSearch={handleLocationSearch} change={handleLocationInputChange} query = {locationQuery} />
+
           </div>
         </div>
       ) : (
