@@ -7,7 +7,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import BookingDatePicker from './booking'; // Import your Calendar component here
 
 
-function Header({onDateSelect, onLocationSearch}) {
+function Header({onDateSelect, onLocationSearch , onLogout, loggedInUser  }) {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false); // State to control the calendar visibility
   const [locationQuery, setLocationQuery] = useState(''); // State to store the location search query
@@ -42,6 +42,10 @@ function Header({onDateSelect, onLocationSearch}) {
     console.log('Location Query Triggered from header:', locationQuery);
     onLocationSearch(locationQuery);
   }
+
+  const handleLogoutClick = () => {
+    onLogout(); // Call the logout function passed from App.js
+  };
 
   return (
     <div className="header">
@@ -78,15 +82,21 @@ function Header({onDateSelect, onLocationSearch}) {
       </button>
       {isPopupOpen && (
         <div className="header__popup">
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
-          <Link to="/register">
-            <button>Sign Up</button>
-          </Link>
+      <div className="welcome-message">
+        {loggedInUser && <p >Welcome  {loggedInUser.email
+                  .split('@')[0]
+                  .charAt(0)
+                  .toUpperCase() +
+                  loggedInUser.email.split('@')[0].slice(1)}{' '}</p>}
+      </div>
+
+
           <Link to="/">
             <button>About</button>
           </Link>
+          <button className="logout-button" onClick={handleLogoutClick}>
+        Logout
+      </button>
         </div>
       )}
     </div>

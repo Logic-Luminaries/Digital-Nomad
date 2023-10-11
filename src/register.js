@@ -1,52 +1,49 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import './register.css';
 
 
-function Register() {
+function Register({ users, setUsers }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
-
-  const validateEmail = (email) => {
-    // Very basic email validation
-    if (!email || !email.includes('@') || !email.includes('.')) {
-      setEmailError('Please enter a valid email address.');
-    } else {
-      setEmailError('');
-    }
-  };
-
-  const validatePassword = (password) => {
-    if (!password) {
-      setPasswordError('Please enter a password.');
-    } else {
-      setPasswordError('');
-    }
-  };
-
-  const validateConfirmPassword = (confirmPassword) => {
-    if (!confirmPassword || confirmPassword !== password) {
-      setConfirmPasswordError('Passwords do not match.');
-    } else {
-      setConfirmPasswordError('');
-    }
-  };
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
+    let emailError = '';
+    let passwordError = '';
+    let confirmPasswordError = '';
+    
+        // Very basic email validation
+        if (!email || !email.includes('@') || !email.includes('.')) {
+          emailError = 'Please enter a valid email address.';
+        } else {
+          emailError= '';
+        }
 
-    // Validate email, password, and confirmPassword before proceeding
-    validateEmail(email);
-    validatePassword(password);
-    validateConfirmPassword(confirmPassword);
+        if (!password) {
+          passwordError = 'Please enter a password.';
+        } else {
+          passwordError = '';
+        }
+
+        if (!confirmPassword || confirmPassword !== password) {
+          confirmPasswordError= 'Passwords do not match.';
+        } else {
+          confirmPasswordError = '';
+        }
+
+        setEmailError(emailError);
+        setPasswordError(passwordError);
+        setConfirmPasswordError(confirmPasswordError);
 
     if (!emailError && !passwordError && !confirmPasswordError) {
-      // You can add your registration logic here
-      console.log('Registration clicked');
+      setUsers([...users, { email, password }]);
+      navigate("/login");
     }
   };
 
