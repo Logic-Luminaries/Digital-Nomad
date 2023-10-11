@@ -8,7 +8,6 @@ function BookingDatePicker({ onDateSelect, onLocationSearch, change, query }) {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  const [locationQuery, setLocationQuery] = useState('');
 
 
   const handleStartDateChange = (date) => {
@@ -29,8 +28,7 @@ function BookingDatePicker({ onDateSelect, onLocationSearch, change, query }) {
     
   };
 
-  /* we still need to reference below fucntion however to use it */
-  const handleLocationSearch = () => {}
+
 
   return (
     <div className="datepicker-popup">
