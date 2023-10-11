@@ -1,7 +1,6 @@
 .welcome-message {
   font-size: 16px;
   color: #333; /* Change the color to your desired text color */
-  margin-bottom: 10px; /* Adjust the margin as needed */
 border-bottom: 1px solid lightgrey;
 
 }
@@ -75,8 +74,8 @@ border-bottom: 1px solid lightgrey;
   
 .header__searchButton:hover {
   background-color: #f9f9f9;
-  color: #6bc6d4; /* Change the text color to blue on hover */
-  box-shadow: 0 0 8px rgba(1, 65, 86, 0.595);
+  color: #000000; /* Change the text color to blue on hover */
+  box-shadow: 0 0 8px #ff385c;
   transition: background-color 0.3s, color 0.3s, box-shadow 0.5s;
 }
   
@@ -101,8 +100,8 @@ border-bottom: 1px solid lightgrey;
 
 
 .header__profileButton:hover {
-    color:#6bc6d4;/* Text color change when hover */
-    box-shadow: 0 0 10px rgba(1, 65, 86, 0.595); /* Add a shadow on hover */
+    color:#ff385c;/* Text color change when hover */
+    box-shadow: 0 0 10px #ff385c; /* Add a shadow on hover */
     transition: background-color 0.3s, color 0.3s, box-shadow 0.5s; /* Adjust the box-shadow duration for a smoother shadow appearence */
 }
 
@@ -132,7 +131,7 @@ border-bottom: 1px solid lightgrey;
     padding: 10px;
     font-size: 15px;
     width: 100%;
-    text-align: left;
+    text-align: center;
 border: none;
     background: none;
     cursor: pointer;
@@ -142,6 +141,6 @@ border: none;
   
   .header__popup button:hover {
     background-color: #f0f0f0;
-    border-radius: 15px;
+    border-radius: 0px 0px 15px 15px;
 
   }

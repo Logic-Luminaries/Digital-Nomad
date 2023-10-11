@@ -25,6 +25,6 @@
 
 .header2-button:hover {
   background-color: #f9f9f9;
-  color: #6bc6d4;
-  box-shadow: 0 0 8px rgba(1, 65, 86, 0.595);
+  color: #ff385c;
+  box-shadow: 0 0 8px #ff385c;
 }
