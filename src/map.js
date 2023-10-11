@@ -193,7 +193,7 @@ const propertyListings = [
     position: { lat: -34.01569917560378, lng:  23.071243433264687},
     list_date: '2023-06-30',
     title: 'Wine Estate Villa',
-    location: 'Kysna, SA',
+    location: 'Knysna, SA',
     type: 'Villa',
     beds: 7,
     bathrooms: 6,
@@ -203,8 +203,8 @@ const propertyListings = [
     imageUrl: '/Images/property10.webp',
     amenities: ['Views', 'Wine Tasting', 'Swimming Pool', 'Outdoor Dining'],
     description:
-      'Experience the charm of wine country at this villa in Kysna. Enjoy vineyard views, wine tasting, and a refreshing swimming pool for relaxation.',
-    nearby: ['Wine tasting in local vineyards', 'Explore historic Kysna', 'Cycling through the wine route'],
+      'Experience the charm of wine country at this villa in Knysna. Enjoy vineyard views, wine tasting, and a refreshing swimming pool for relaxation.',
+    nearby: ['Wine tasting in local vineyards', 'Explore historic Knysna', 'Cycling through the wine route'],
   },
   {
     id: 11,
