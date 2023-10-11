@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import './propertyListings.css'; // You can create a CSS file for styling
 import PropertyPopup from './propertyPopup';
 
-
-function PropertyListings ({ filters, startDate, endDate, locationQuery  }){
+function PropertyListings({ filters, startDate, endDate, locationQuery }) {
   const [selectedProperty, setSelectedProperty] = useState(null);
 
   // Dummy data for property listings
@@ -18,8 +17,8 @@ function PropertyListings ({ filters, startDate, endDate, locationQuery  }){
       beds: 2,
       bathrooms: 1,
       price: 'R100/night',
-      availablefrom:'2023-10-01',
-      availableto:'2023-10-07',
+      availablefrom: '2023-10-01',
+      availableto: '2023-10-07',
       imageUrl: '/Images/property1.webp',
       amenities: ['Free Wi-Fi', 'Swimming Pool', 'Parking', 'Air Conditioning'],
       description:
@@ -36,8 +35,8 @@ function PropertyListings ({ filters, startDate, endDate, locationQuery  }){
       beds: 4,
       bathrooms: 3,
       price: 'R250/night',
-      availablefrom:'2023-10-01',
-      availableto:'2023-10-07',
+      availablefrom: '2023-10-01',
+      availableto: '2023-10-07',
       imageUrl: '/Images/property2.webp',
       amenities: ['Free Wi-Fi', 'Fireplace', 'Nature Trails', 'Private Lake'],
       description:
@@ -54,8 +53,8 @@ function PropertyListings ({ filters, startDate, endDate, locationQuery  }){
       beds: 8,
       bathrooms: 10,
       price: 'R80/night',
-      availablefrom:'2023-10-27',
-      availableto:'2023-10-31',
+      availablefrom: '2023-10-27',
+      availableto: '2023-10-31',
       imageUrl: '/Images/property3.webp',
       amenities: ['Free Wi-Fi', 'Ocean View', 'Private Beach Access', 'Swimming Pool'],
       description:
@@ -89,10 +88,191 @@ function PropertyListings ({ filters, startDate, endDate, locationQuery  }){
       bathrooms: 15,
       price: 'R150/night',
       imageUrl: '/Images/property5.webp',
-      amenities: ['Free Wi-Fi', 'Beachfront', 'Private Terrace', 'Gym'],
+      amenities: ['Free Wi-Fi', 'Hot Tub', 'Scenic Views', 'Hiking Trails'],
       description:
-        'Experience luxury living in this beachfront penthouse with stunning beach views. The penthouse offers four bedrooms, a private terrace, and access to a fully equipped gym.',
-      nearby: ['Enjoy watersports on the beach', 'Dine at local seafood restaurants', 'Visit uShaka Marine World'],
+        'Experience luxury living in this mountain retreat with a hot tub and stunning scenic views. The house offers ten bedrooms, a hot tub, and access to nearby hiking trails.',
+      nearby: ['Explore Drakensberg Mountains', 'Hike in the nearby trails', 'Stargazing at night'],
+    },
+    
+    {
+      id: 6,
+      position: { lat: -33.90931696878372, lng: 18.405844981057765 },
+      list_date: '2023-02-15',
+      title: 'Safari Lodge in Kruger National Park',
+      location: 'Kruger National Park, SA',
+      type: 'Lodge',
+      beds: 6,
+      bathrooms: 5,
+      price: 'R300/night',
+      availablefrom: '2023-10-01',
+      availableto: '2023-10-07',
+      imageUrl: '/Images/property6.webp',
+      amenities: ['Game Drives', 'Swimming Pool', 'Outdoor Dining', 'Wildlife Viewing'],
+      description:
+        'Experience the beauty of the wild at this safari lodge in Kruger National Park. Enjoy game drives, wildlife viewing, and comfortable accommodations in the heart of the park.',
+      nearby: ['Explore Kruger National Park', 'Spot the Big Five', 'Bird Watching'],
+    },
+    {
+      id: 7,
+      position: { lat: -33.92523783245308, lng: 25.61180041984406 },
+      list_date: '2023-03-22',
+      title: 'Seaside Cottage in Port Elizabeth',
+      location: 'Port Elizabeth, SA',
+      type: 'Cottage',
+      beds: 3,
+      bathrooms: 2,
+      price: 'R180/night',
+      availablefrom: '2023-10-01',
+      availableto: '2023-10-07',
+      imageUrl: '/Images/property7.webp',
+      amenities: ['Ocean View', 'Private Beach Access', 'Patio', 'BBQ Grill'],
+      description:
+        'Relax by the sea at this charming seaside cottage in Port Elizabeth. Enjoy stunning ocean views, direct beach access, and a cozy patio for outdoor dining.',
+      nearby: ['Swim in the ocean', 'Visit Addo Elephant National Park', 'Explore Boardwalk Casino'],
+    },
+    {
+      id: 8,
+      position: { lat: -29.166302835881643, lng: 26.199274998111695 },
+      list_date: '2023-04-10',
+      title: 'Rural Farmhouse in Free State',
+      location: 'Free State, SA',
+      type: 'Farmhouse',
+      beds: 5,
+      bathrooms: 3,
+      price: 'R120/night',
+      availablefrom: '2023-10-01',
+      availableto: '2023-10-07',
+      imageUrl: '/Images/property8.webp',
+      amenities: ['Scenic Views', 'Farm Animals', 'Fireplace', 'Hiking Trails'],
+      description:
+        'Experience rural life at this charming farmhouse in Free State. Enjoy scenic views, interact with farm animals, and explore nearby hiking trails.',
+      nearby: ['Hike in the countryside', 'Farm experience for kids', 'Visit Golden Gate Highlands National Park'],
+    },
+    {
+      id: 9,
+      position: { lat: -26.861799469230707, lng: 27.79975890754634 },
+      list_date: '2023-05-18',
+      title: 'Historic Guesthouse in Pretoria',
+      location: 'Pretoria, SA',
+      type: 'Guesthouse',
+      beds: 6,
+      bathrooms: 4,
+      price: 'R220/night',
+      availablefrom: '2023-10-01',
+      availableto: '2023-10-07',
+      imageUrl: '/Images/property9.webp',
+      amenities: ['Antique Furnishings', 'Garden', 'Breakfast Included', 'Library'],
+      description:
+        'Step back in time at this historic guesthouse in Pretoria. Enjoy antique furnishings, a beautiful garden, and a library for quiet reading.',
+      nearby: ['Visit Voortrekker Monument', 'Explore Union Buildings', 'Dine at local restaurants'],
+    },
+    {
+      id: 10,
+      position: { lat: -34.03787564261098, lng: 24.916620920400165 },
+      list_date: '2023-06-30',
+      title: 'Wine Estate Villa in Stellenbosch',
+      location: 'Stellenbosch, SA',
+      type: 'Villa',
+      beds: 7,
+      bathrooms: 6,
+      price: 'R280/night',
+      availablefrom: '2023-10-01',
+      availableto: '2023-10-07',
+      imageUrl: '/Images/property10.webp',
+      amenities: ['Vineyard Views', 'Wine Tasting', 'Swimming Pool', 'Outdoor Dining'],
+      description:
+        'Experience the charm of wine country at this villa in Stellenbosch. Enjoy vineyard views, wine tasting, and a refreshing swimming pool for relaxation.',
+      nearby: ['Wine tasting in local vineyards', 'Explore historic Stellenbosch', 'Cycling through the wine route'],
+    },
+    {
+      id: 11,
+      position: { lat: -33.92230621561594, lng: 18.41919097149301 },
+      list_date: '2023-07-12',
+      title: 'Modern Loft in Cape Town',
+      location: 'Cape Town, SA',
+      type: 'Loft',
+      beds: 2,
+      bathrooms: 1,
+      price: 'R200/night',
+      availablefrom: '2023-10-01',
+      availableto: '2023-10-07',
+      imageUrl: '/Images/property11.webp',
+      amenities: ['City View', 'Balcony', 'Gym', 'WiFi'],
+      description:
+        'Stay in this modern loft in the heart of Cape Town. Enjoy city views, a private balcony, and access to a fully equipped gym.',
+      nearby: ['Explore V&A Waterfront', 'Hike Lion\'s Head', 'Visit Robben Island'],
+    },
+    {
+      id: 12,
+      position: { lat: -26.261012580050805, lng: 28.101140635103374 },
+      list_date: '2023-08-19',
+      title: 'Charming Cottage in Pretoria',
+      location: 'Pretoria, SA',
+      type: 'Cottage',
+      beds: 3,
+      bathrooms: 2,
+      price: 'R160/night',
+      availablefrom: '2023-10-01',
+      availableto: '2023-10-07',
+      imageUrl: '/Images/property12.webp',
+      amenities: ['Garden', 'Fireplace', 'BBQ Grill', 'WiFi'],
+      description:
+        'Relax in this charming cottage in Pretoria. Enjoy a beautiful garden, a cozy fireplace, and a BBQ grill for outdoor cooking.',
+      nearby: ['Visit National Zoological Gardens', 'Explore Freedom Park', 'Dine at local cafes'],
+    },
+    {
+      id: 13,
+      position: { lat: -29.83136760550003, lng: 30.929654229679116 },
+      list_date: '2023-09-25',
+      title: 'Riverside Cabin in Drakensberg',
+      location: 'Drakensberg, SA',
+      type: 'Cabin',
+      beds: 4,
+      bathrooms: 2,
+      price: 'R180/night',
+      availablefrom: '2023-10-01',
+      availableto: '2023-10-07',
+      imageUrl: '/Images/property13.webp',
+      amenities: ['River View', 'Hiking Trails', 'Fireplace', 'WiFi'],
+      description:
+        'Experience nature in this riverside cabin in Drakensberg. Enjoy river views, hiking trails, and a cozy fireplace for cooler evenings.',
+      nearby: ['Hike in the Drakensberg Mountains', 'Fly fishing in the river', 'Stargazing at night'],
+    },
+    {
+      id: 14,
+      position: { lat: -34.171886885345194, lng: 18.87095623685968 },
+      list_date: '2023-10-03',
+      title: 'Historic Manor in Stellenbosch',
+      location: 'Stellenbosch, SA',
+      type: 'Manor',
+      beds: 6,
+      bathrooms: 4,
+      price: 'R250/night',
+      availablefrom: '2023-10-01',
+      availableto: '2023-10-07',
+      imageUrl: '/Images/property14.webp',
+      amenities: ['Historic Charm', 'Garden', 'Library', 'WiFi'],
+      description:
+        'Step into history at this historic manor in Stellenbosch. Enjoy historic charm, a beautiful garden, and a library for reading and relaxation.',
+      nearby: ['Wine tasting in local vineyards', 'Explore Stellenbosch museums', 'Cycling through the vineyards'],
+    },
+    {
+      id: 15,
+      position: { lat: -26.14757933034037, lng: 27.921049820423105 },
+      list_date: '2023-11-28',
+      title: 'Family Villa in Johannesburg',
+      location: 'Johannesburg, SA',
+      type: 'Villa',
+      beds: 5,
+      bathrooms: 3,
+      price: 'R280/night',
+      availablefrom: '2023-10-01',
+      availableto: '2023-10-07',
+      imageUrl: '/Images/property15.webp',
+      amenities: ['Swimming Pool', 'Garden', 'BBQ Area', 'WiFi'],
+      description:
+        'Enjoy family time at this spacious villa in Johannesburg. Swim in the pool, relax in the garden, and have a BBQ on the sunny terrace.',
+      nearby: ['Visit the Apartheid Museum', 'Explore Gold Reef City', 'Shop at Sandton City Mall'],
     },
   ];
 
@@ -114,7 +294,7 @@ function PropertyListings ({ filters, startDate, endDate, locationQuery  }){
       (!startDate || !endDate) ||
       (availableFromDate <= endDate && availableToDate >= startDate);
 
-      const matchesLocationQuery =
+    const matchesLocationQuery =
       !locationQuery ||
       property.location.toLowerCase().includes(locationQuery.toLowerCase());
 
