@@ -6,7 +6,7 @@ Follow these steps to set up and run the Digital Nomad web application on your l
 
 Before you begin, make sure you have the following installed on your system:
 
-- [Node.js](https://nodejs.org/) (npm will be included)(make sure you have the latest versions installed/updated)
+- [Node.js](https://nodejs.org/) (npm will be included) (make sure you have the latest versions installed/updated)
 - [Git](https://git-scm.com/)
 
 You need to have Git installed to use the `git clone` command for fetching the project repository. You can download and install Git from the official Git website: [https://git-scm.com/](https://git-scm.com/).
