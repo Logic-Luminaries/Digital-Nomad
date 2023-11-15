@@ -1,121 +1,23 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
-  font-family: sans-serif;
-  margin: 20px;
-  padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
-h1 {
-  margin-top: 0;
-  font-size: 22px;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
 }
 
-h2 {
-  margin-top: 0;
-  font-size: 20px;
+.header, .footer {
+    font-family: 'Roboto', sans-serif;
 }
 
-h3 {
-  margin-top: 0;
-  font-size: 18px;
+.popup {
+    font-family: 'Roboto', sans-serif;
 }
 
-h4 {
-  margin-top: 0;
-  font-size: 16px;
+button, .btn {
+    font-family: 'Roboto', sans-serif;
 }
 
-h5 {
-  margin-top: 0;
-  font-size: 14px;
-}
-
-h6 {
-  margin-top: 0;
-  font-size: 12px;
-}
-
-code {
-  font-size: 1.2em;
-}
-
-ul {
-  padding-inline-start: 20px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-  margin: 20px;
-  padding: 0;
-}
-
-.square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 80px;
-  font-weight: bold;
-  line-height: 150px;
-  height: 150px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
-  text-align: center;
-  width: 150px;
-  cursor: pointer;
-}
-
-  /* Style "X" and "O" differently */
-.square::before {
-  content: attr(data-value);
-  display: block;
-}
-
-.square.X::before {
-  color: black; /* Set "X" color to black */
-}
-
-.square.O::before {
-  color: red; /* Set "O" color to red */
-}
-
-.board-row:after {
-  clear: both;
-  content: '';
-  display: table;
-}
-
-.status {
-  margin-bottom: 10px;
-  font-size: 35px;
-}
-.game {
-  display: flex;
-  flex-direction: row;
-}
-
-.game-info {
-  margin-left: 20px;
-}
-
-.restart-button {
-  border: black solid 1px;
-  color: rgb(0, 0, 0);
-  margin: 30px 40px;
-  font-size: 24px;
-  padding: 10px 100px;
-  background-color: rgb(255, 251, 0);
-  cursor: pointer;
-  transition: background-color 0.3s; /* Add smooth transition effect */
-}
-
-.restart-button:hover {
-  background-color: rgb(255, 208, 0); /* Change color on hover */
+ul, ol, li, p {
+    font-family: 'Roboto', sans-serif;
 }
