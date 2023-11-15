@@ -1,5 +1,3 @@
-Certainly, I can help you rewrite the instructions for your README file. Here's a revised version of the instructions:
-
 # Digital Nomad Web Application Setup
 
 Follow these steps to set up and run the Digital Nomad web application on your local machine.
