@@ -23,7 +23,7 @@ Before you begin, ensure that you have the latest versions of the following depe
    cd DigitalNomad
    ```
 
-3. Switch to the development branch:
+3. Switch to the development branch (Please note that each person worked in their own branch and once the client was happy with each persons work, we pushed that work to the development branch) :
 
    ```
    git checkout Development
