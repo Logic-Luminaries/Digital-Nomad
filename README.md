@@ -1,4 +1,4 @@
-# Digital Nomad Web Application Setup
+# Digital Nomad Installation Guide
 
 Follow these steps to set up and run the Digital Nomad web application on your local machine.
 
