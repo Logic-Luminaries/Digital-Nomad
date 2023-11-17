@@ -20,7 +20,7 @@ Before you begin, ensure that you have the latest versions of the following depe
 2. Navigate to the Digital Nomad project folder:
 
    ```
-   cd DigitalNomad
+   cd Digital-Nomad
    ```
 
 3. Switch to the development branch (Please note individual work branches were merged into development after client approval) :
