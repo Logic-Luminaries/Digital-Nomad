@@ -14,7 +14,8 @@ Before you begin, ensure that you have the latest versions of the following depe
 1. Clone the Digital Nomad repository into a directory of your choice:
 
    ```
-   git clone https://github.com/Logic-Luminaries/Digital-Nomad.git DigitalNomad
+   git clone https://github.com/Logic-Luminaries/Digital-Nomad.git Digital-Nomad
+
    ```
 
 2. Navigate to the Digital Nomad project folder:
