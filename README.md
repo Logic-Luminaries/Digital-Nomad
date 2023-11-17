@@ -37,7 +37,7 @@ Before you begin, ensure that you have the latest versions of the following depe
 
   Command 4 will download and install all the required packages and libraries for the project. Be patient, as it may take a few moments to complete.
 
-## Running the Application
+## Running the application
 
 1. Start the application on your local server:
 
@@ -47,6 +47,28 @@ Before you begin, ensure that you have the latest versions of the following depe
 
    The application will be accessible at [http://localhost:3000](http://localhost:3000) in your web browser.
 
-**Note:** During the installation process, you may encounter warnings about vulnerabilities related to certain packages. You can ignore these warnings for now, as they typically don't affect the functionality of the application in a local development environment.
+## Errors when running the application
 
+If you encounter any errors on `npm start`, please follow the steps below to ensure that you have version 20.5.1 of Node installed.
+
+1. Install a Node Version Manager (NVM) by running the following command in your terminal:
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+```
+
+2. Run the following in your terminal
+```
+source ~/.bashrc
+```
+
+3. Install Node version 20.5.1 which the project requires
+```
+nvm install 20.5.1
+```
+
+You should no longer receive any errors when running `npm start`
+
+
+**Note:** During the installation process, you may encounter warnings about vulnerabilities related to certain packages. You can ignore these warnings for now, as they typically don't affect the functionality of the application in a local development environment.
+------------------------------
 You have successfully set up and launched the Digital Nomad web application on your local machine. Enjoy exploring and working with the application!
