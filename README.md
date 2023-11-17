@@ -4,7 +4,7 @@ Follow these steps to set up and run the Digital Nomad web application on your l
 
 ## Prerequisites
 
-Before you begin, ensure that you have the latest versions of the following dependencies installed on your system. If not, download or update them from their official webistes provided below.
+Before you begin, ensure that you have the latest versions of the following dependencies installed on your system. If not, download or update them from their official websites provided below.
 
 - [Node.js](https://nodejs.org/) (It is essential to have Node.js installed to utilize the `npm` command and install the project dependencies)
 - [Git](https://git-scm.com/downloads) (It is essential to have Git installed to utilize the `git clone` command and fetch the project repository)
